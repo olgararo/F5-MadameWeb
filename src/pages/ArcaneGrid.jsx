@@ -73,11 +73,12 @@ export default function ArcaneGrid() {
         Arcanos y Diosas
       </h1>
       <div className="text-center mb-6">
-        <p className="text-moonlight-linen/80 font-truculenta text-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-moonlight-linen/80 font-truculenta text-lg max-w-2xl mx-4 sm:mx-8 md:mx-auto leading-relaxed">
           Descubre los secretos del universo a través de los arcanos del tarot
           científico.
         </p>
-        <p className="text-moonlight-linen/80 font-truculenta text-lg max-w-2xl mx-auto leading-relaxed">
+
+        <p className="text-moonlight-linen/80 font-truculenta text-lg max-w-2xl  mx-4 sm:mx-8 md:mx-auto leading-relaxed">
           Cada carta revela la historia de una{" "}
           <span className="text-cosmic-plum font-medium">
             diosa de la tecnología{" "}
