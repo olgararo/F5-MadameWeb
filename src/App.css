@@ -11,7 +11,7 @@
   }
 }
 
-/* Animación de flotación para los puntos decorativos */
+/* Animación de flotación para los puntitoss */
 @keyframes float {
   0%, 100% { 
     transform: translateY(0px); 
@@ -45,7 +45,7 @@
   animation: float 3s ease-in-out infinite;
 }
 
-/* Efecto de hover mejorado para el título */
+/* Efecto de hover título */
 .mystic-title {
   position: relative;
   overflow: hidden;
@@ -67,7 +67,7 @@
   animation: shimmer 3s ease-in-out infinite;
 }
 
-/* Mejoras en las transiciones de los links */
+/* transiciones de los links */
 .nav-link {
   position: relative;
   transition: all 0.3s ease;
@@ -103,7 +103,7 @@
   animation: mystic-glow 6s ease-in-out infinite;
 }
 
-/* Efecto de texto con sombra mística */
+/* Efecto de texto con sombra  */
 .mystic-text {
   text-shadow: 
     0 0 5px rgba(255, 111, 60, 0.3),
