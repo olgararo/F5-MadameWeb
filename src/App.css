@@ -1,42 +1,114 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+/* Animaciones personalizadas para efectos místicos */
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Animación de resplandor sutil */
+@keyframes mystic-glow {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: translateX(-10px);
   }
-  to {
-    transform: rotate(360deg);
+  50% { 
+    opacity: 0.8; 
+    transform: translateX(10px);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Animación de flotación para los puntos decorativos */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-3px); 
   }
 }
 
-.card {
-  padding: 2em;
+/* Animación de destello */
+@keyframes shimmer {
+  0% { 
+    transform: translateX(-100%); 
+    opacity: 0;
+  }
+  50% { 
+    opacity: 1;
+  }
+  100% { 
+    transform: translateX(100%); 
+    opacity: 0;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+/* Aplicar animaciones personalizadas */
+.mystic-light {
+  animation: mystic-glow 4s ease-in-out infinite;
+}
+
+.float-decoration {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Efecto de hover mejorado para el título */
+.mystic-title {
+  position: relative;
+  overflow: hidden;
+}
+
+.mystic-title::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 111, 60, 0.4),
+    transparent
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Mejoras en las transiciones de los enlaces */
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #FF6F3C, transparent);
+  transition: width 0.3s ease;
+  transform: translateY(-50%);
+}
+
+.nav-link:hover::before {
+  width: calc(100% + 20px);
+}
+
+/* Efectos de backdrop blur mejorados */
+.glass-effect {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(46, 26, 71, 0.8);
+  border: 1px solid rgba(181, 128, 209, 0.2);
+}
+
+/* Animación suave para los haces de luz */
+.light-beam {
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  animation: mystic-glow 6s ease-in-out infinite;
+}
+
+/* Efecto de texto con sombra mística */
+.mystic-text {
+  text-shadow: 
+    0 0 5px rgba(255, 111, 60, 0.3),
+    0 0 10px rgba(255, 111, 60, 0.2),
+    0 0 15px rgba(255, 111, 60, 0.1);
 }
