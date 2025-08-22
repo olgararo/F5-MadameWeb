@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-nebula-black flex flex-col">
-      {/* Navbar con animaciones místicas - Oculta en home */}
+      {/* Navbar con animaciones - Oculta en home */}
       {!isHomePage && (
         <header className="relative">
         {/* Haces de luz animados de fondo */}
@@ -43,7 +43,7 @@ function App() {
                 <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-sunflare-orange to-supernova-coral transition-all duration-500"></div>
               </Link>
 
-              {/* Botón hamburguesa - Solo móvil */}
+              {/* Botón hamburguesa - Solo en móvil */}
               <button 
                 className="md:hidden text-2xl px-3 py-2 text-sunflare-orange hover:text-supernova-coral hover:bg-cosmic-plum/30 rounded-xl transition-all duration-300" 
                 onClick={() => setIsOpen(!isOpen)}
@@ -69,7 +69,7 @@ function App() {
                 )}
               </button>
 
-              {/* Links de navegación - Solo desktop */}
+              {/* Links de navegación - Solo para desktop */}
               <ul className="hidden md:flex space-x-8">
                 <li>
                   <Link 
@@ -205,7 +205,7 @@ function App() {
 
       {/* Footer */}
       <footer className="relative mt-auto">
-        {/* Haces de luz animados en el footer */}
+        {/* Lucecitas animados en el footer */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute bottom-2 left-8 w-40 h-0.5 bg-gradient-to-r from-transparent via-madame-mystic to-transparent opacity-20 animate-pulse delay-300"></div>
           <div className="absolute bottom-1 right-12 w-32 h-1 bg-gradient-to-r from-transparent via-radiant-apricot to-transparent opacity-15 animate-pulse delay-1500"></div>
