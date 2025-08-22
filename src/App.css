@@ -1,6 +1,4 @@
 
-/* Animaciones personalizadas para efectos místicos */
-
 /* Animación de resplandor sutil */
 @keyframes mystic-glow {
   0%, 100% { 
@@ -38,7 +36,7 @@
   }
 }
 
-/* Aplicar animaciones personalizadas */
+
 .mystic-light {
   animation: mystic-glow 4s ease-in-out infinite;
 }
@@ -69,7 +67,7 @@
   animation: shimmer 3s ease-in-out infinite;
 }
 
-/* Mejoras en las transiciones de los enlaces */
+/* Mejoras en las transiciones de los links */
 .nav-link {
   position: relative;
   transition: all 0.3s ease;
@@ -91,7 +89,7 @@
   width: calc(100% + 20px);
 }
 
-/* Efectos de backdrop blur mejorados */
+/* Efectos de backdrop blurrr  */
 .glass-effect {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
