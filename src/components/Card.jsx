@@ -12,7 +12,7 @@ const Card = ({ arcane }) => {
       // El Link se encargará de la navegación
       return;
     } else {
-      // Si no está girada, prevenir navegación y solo girar
+      // Si no está girada, no permitir navegación y solo girar
       e.preventDefault();
       setIsFlipped(true);
     }
@@ -20,7 +20,7 @@ const Card = ({ arcane }) => {
 
   return (
     <Link to={`/detail/${arcane.id}`} onClick={handleCardClick}>
-      <div className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition cursor-pointer">
+      <div className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition cursor-pointer w-full max-w-[180px] mx-auto">
         <div className="aspect-[2/3] w-full">
           <img 
             src={isFlipped ? arcane.arcaneImage.imageSrc : cardBack} 
@@ -30,7 +30,7 @@ const Card = ({ arcane }) => {
         </div>
         {isFlipped && (
           <div className="p-3 bg-galactic-purple text-moonlight-linen">
-            <h3 className="font-truculenta text-sm font-bold">{arcane.arcaneName}</h3>
+            <h3 className="font-truculenta text-base font-bold">{arcane.arcaneName}</h3>
             <p className="text-xs opacity-80">Haz clic para ver detalles</p>
           </div>
         )}
