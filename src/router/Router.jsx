@@ -13,7 +13,7 @@ const routerMadameWeb = createBrowserRouter([
     element: <App />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/about", element: <About /> },
+      //{ path: "/about", element: <About /> },
       { path: "/grid", element: <ArcaneGrid /> },
       { path: "/detail/:id", element: <ArcaneDetail /> },
       { path: "/reading", element: <ArcaneReading /> },

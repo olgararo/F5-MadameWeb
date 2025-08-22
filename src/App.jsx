@@ -116,7 +116,7 @@ function App() {
                     }`}></div>
                   </Link>
                 </li>
-                <li>
+                {/*<li>
                   <Link 
                     to="/about" 
                     className={`font-truculenta text-sm transition-all duration-300 relative group ${
@@ -130,7 +130,7 @@ function App() {
                       isActiveLink('/about') ? 'w-full' : 'w-0 group-hover:w-full'
                     }`}></div>
                   </Link>
-                </li>
+                </li>*/}
               </ul>
             </div>
           </div>
@@ -179,7 +179,7 @@ function App() {
                   Lectura
                 </Link>
               </li>
-              <li>
+              {/*<li>
                 <Link 
                   to="/about" 
                   onClick={handleLinkClick}
@@ -191,7 +191,7 @@ function App() {
                 >
                   El Proyecto
                 </Link>
-              </li>
+              </li>*/}
             </ul>
           </div>
         )}
