@@ -104,11 +104,11 @@ export default function ArcaneGrid() {
       </h1>
       
       <div className="text-center mb-6">
-        <p className="text-moonlight-linen font-truculenta text-lg">
+        <p className="text-moonlight-linen font-truculenta text-lg px-4">
            Descubre los secretos del universo a través de los arcanos del tarot
           científico.
         </p>
-        <p className="text-moonlight-linen/80 font-truculenta text-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-moonlight-linen/80 font-truculenta text-lg max-w-2xl mx-auto px-4 leading-relaxed">
           Cada carta revela la historia de una{" "}
           <span className="text-cosmic-plum font-medium">
             diosa de la tecnología{" "}
