@@ -29,6 +29,15 @@ export default function ArcaneGrid() {
     fetchCards();
   }, []);
 
+  // Función para hacer scroll al principio de la página
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [currentPage]);
+
+
   // Calcular paginación
   const totalCards = allCards.length;
   const totalPages = Math.ceil(totalCards / cardsPerPage);
@@ -36,7 +45,7 @@ export default function ArcaneGrid() {
   const endIndex = startIndex + cardsPerPage;
   const currentCards = allCards.slice(startIndex, endIndex);
 
-  // Funciones de navegación
+  // Funciones de navegación con scroll al principio del todo
   const goToPrevious = () => {
     setCurrentPage(prev => Math.max(prev - 1, 1));
   };
@@ -44,6 +53,7 @@ export default function ArcaneGrid() {
   const goToNext = () => {
     setCurrentPage(prev => Math.min(prev + 1, totalPages));
   };
+
 
   // Calcular rango mostrado
   const startCard = totalCards === 0 ? 0 : startIndex + 1;
@@ -89,22 +99,27 @@ export default function ArcaneGrid() {
 
   return (
     <main className="min-h-screen bg-nebula-black">
-      <h1 className="text-center text-3xl font-truculenta text-sunflare-orange py-8">
+      <h1 className="text-center text-3xl font-truculenta text-supernova-coral py-8">
         Arcanos y Diosas
       </h1>
       
       <div className="text-center mb-6">
-        <p className="text-moonlight-linen font-truculenta text-sm">
-          Haz clic en una carta para voltearla y luego acceder a sus detalles
+        <p className="text-moonlight-linen font-truculenta text-lg">
+           Descubre los secretos del universo a través de los arcanos del tarot
+          científico.
+        </p>
+        <p className="text-moonlight-linen/80 font-truculenta text-lg max-w-2xl mx-auto leading-relaxed">
+          Cada carta revela la historia de una{" "}
+          <span className="text-cosmic-plum font-medium">
+            diosa de la tecnología{" "}
+          </span>
+          que cambió el mundo.
         </p>
       </div>
 
-      {/* Información de paginación */}
+      {/* circulitos decoración */}
       <div className="text-center mb-6">
-        <p className="text-radiant-apricot font-truculenta text-sm">
-          Mostrando {startCard}-{endCard} de {totalCards} cartas
-        </p>
-        <div className="flex justify-center items-center space-x-2 mt-2">
+         <div className="flex justify-center items-center space-x-2 mt-2">
           <div className="w-2 h-2 bg-cosmic-plum rounded-full animate-pulse"></div>
           <div className="w-1 h-1 bg-sunflare-orange rounded-full animate-pulse delay-300"></div>
           <div className="w-2 h-2 bg-wink-pink rounded-full animate-pulse delay-600"></div>
@@ -175,6 +190,13 @@ export default function ArcaneGrid() {
           </button>
         </div>
       )}
+{/* Texto indicativo paginación */}
+ <div className="text-center mb-6">
+        <p className="text-radiant-apricot font-truculenta text-sm">
+          Mostrando {startCard}-{endCard} de {totalCards} cartas
+        </p>
+       
+      </div>
 
       {/* Decoración mística inferior */}
       <div className="flex justify-center items-center space-x-6 pb-8">

@@ -4,7 +4,7 @@ import crystalBallAnimation from "../assets/img/ani_crystalBall.json";
 export default function ArcaneReading() {
   return (
     <div className="min-h-screen bg-nebula-black flex flex-col items-center justify-center text-center px-4">
-      <h1 className="text-4xl font-truculenta text-sunflare-orange mb-8">
+      <h1 className="text-4xl font-truculenta text-supernova-coral mb-6">
         Coming Soon...
       </h1>
 
