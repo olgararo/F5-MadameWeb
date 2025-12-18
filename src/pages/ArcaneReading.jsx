@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAllCards } from "../services/readingService";
+import { getAllCards, getPrediction } from "../services/readingService";
 import cardBack from "../assets/img/img_cardback.png";
 import Lottie from "lottie-react";
 import crystalBallAnimation from "../assets/img/ani_crystalBall.json";
@@ -15,6 +15,8 @@ export default function ArcaneReading() {
   const [error, setError] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const [openedCard, setOpenedCard] = useState(null);
+  const [prediction, setPrediction] = useState(null);
+  const [loadingPrediction, setLoadingPrediction] = useState(false);
 
   // Cargar todas las cartas al montar
   useEffect(() => {
@@ -52,9 +54,25 @@ export default function ArcaneReading() {
     }
   };
 
-  // Revelar las cartas seleccionadas
-  const handleReveal = () => {
+  // Revelar las cartas y obtener predicción
+  const handleReveal = async () => {
     setRevealed(true);
+    setLoadingPrediction(true);
+
+    try {
+      const predictionData = await getPrediction(
+        selectedCards.past.id,
+        selectedCards.present.id,
+        selectedCards.future.id
+      );
+
+      setPrediction(predictionData);
+    } catch (err) {
+      console.error("Error al obtener predicción:", err);
+      setError("Error al generar la predicción");
+    } finally {
+      setLoadingPrediction(false);
+    }
   };
 
   // Reiniciar la lectura
@@ -62,6 +80,8 @@ export default function ArcaneReading() {
     setSelectedCards({ past: null, present: null, future: null });
     setRevealed(false);
     setOpenedCard(null);
+    setPrediction(null);
+    setError(null);
   };
 
   const canReveal =
@@ -75,7 +95,6 @@ export default function ArcaneReading() {
     return (
       <div className="min-h-screen bg-nebula-black flex items-center justify-center">
         <div className="text-center">
-          {/* Animación Lottie de Bola de Cristal con el json */}
           <div className="mb-8 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
             <Lottie
               animationData={crystalBallAnimation}
@@ -92,10 +111,20 @@ export default function ArcaneReading() {
     );
   }
 
-  if (error) {
+  if (error && !prediction) {
     return (
       <div className="min-h-screen bg-nebula-black flex items-center justify-center">
-        <p className="text-supernova-coral font-truculenta text-lg">{error}</p>
+        <div className="text-center">
+          <p className="text-supernova-coral font-truculenta text-lg mb-4">
+            {error}
+          </p>
+          <button
+            onClick={handleReset}
+            className="px-6 py-3 bg-sunflare-orange hover:bg-supernova-coral text-nebula-black rounded-lg font-truculenta font-bold transition-all duration-300"
+          >
+            Reintentar
+          </button>
+        </div>
       </div>
     );
   }
@@ -104,7 +133,6 @@ export default function ArcaneReading() {
     <div className="min-h-screen bg-gradient-to-b from-nebula-black via-galactic-purple/30 to-nebula-black text-moonlight-linen py-8 px-4">
       {/* Header con efectos místicos */}
       <div className="text-center mb-8 relative">
-        {/* Haces de luz decorativos */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 left-1/4 w-32 h-0.5 bg-gradient-to-r from-transparent via-sunflare-orange/30 to-transparent animate-pulse"></div>
           <div
@@ -126,7 +154,6 @@ export default function ArcaneReading() {
           <span className="text-wink-pink font-medium">Futuro</span>
         </p>
 
-        {/* Decoración de puntos */}
         <div className="flex justify-center items-center space-x-3 mt-4">
           <div className="w-2 h-2 bg-cosmic-plum rounded-full animate-pulse"></div>
           <div
@@ -160,13 +187,11 @@ export default function ArcaneReading() {
                   <img
                     src={
                       revealed
-                        ? selectedCards.past.arcaneImage.imageSrc
+                        ? selectedCards.past.arcanaImage?.imageUrl
                         : cardBack
                     }
                     alt={
-                      revealed
-                        ? selectedCards.past.arcaneName
-                        : "Carta boca abajo"
+                      revealed ? selectedCards.past.name : "Carta boca abajo"
                     }
                     className="w-full h-full object-cover rounded-lg cursor-pointer transition-transform duration-300 group-hover:scale-105"
                     onClick={() =>
@@ -202,13 +227,11 @@ export default function ArcaneReading() {
                   <img
                     src={
                       revealed
-                        ? selectedCards.present.arcaneImage.imageSrc
+                        ? selectedCards.present.arcanaImage?.imageUrl
                         : cardBack
                     }
                     alt={
-                      revealed
-                        ? selectedCards.present.arcaneName
-                        : "Carta boca abajo"
+                      revealed ? selectedCards.present.name : "Carta boca abajo"
                     }
                     className="w-full h-full object-cover rounded-lg cursor-pointer transition-transform duration-300 group-hover:scale-105"
                     onClick={() =>
@@ -244,13 +267,11 @@ export default function ArcaneReading() {
                   <img
                     src={
                       revealed
-                        ? selectedCards.future.arcaneImage.imageSrc
+                        ? selectedCards.future.arcanaImage?.imageUrl
                         : cardBack
                     }
                     alt={
-                      revealed
-                        ? selectedCards.future.arcaneName
-                        : "Carta boca abajo"
+                      revealed ? selectedCards.future.name : "Carta boca abajo"
                     }
                     className="w-full h-full object-cover rounded-lg cursor-pointer transition-transform duration-300 group-hover:scale-105"
                     onClick={() =>
@@ -293,6 +314,78 @@ export default function ArcaneReading() {
         )}
       </div>
 
+      {/* Loading de Predicción */}
+      {loadingPrediction && (
+        <div className="max-w-4xl mx-auto mb-8">
+          <div className="bg-galactic-purple/60 backdrop-blur-sm border border-cosmic-plum/50 rounded-2xl p-8 text-center">
+            <div className="w-32 h-32 mx-auto mb-4">
+              <Lottie
+                animationData={crystalBallAnimation}
+                loop={true}
+                className="w-full h-full"
+              />
+            </div>
+            <p className="text-radiant-apricot font-truculenta text-lg animate-pulse">
+              Consultando las energías cósmicas...
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Predicción */}
+      {prediction && !loadingPrediction && (
+        <div className="max-w-4xl mx-auto mb-8 animate-[fadeIn_1s_ease-out]">
+          <div className="bg-galactic-purple/80 backdrop-blur-sm border-2 border-sunflare-orange/50 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <h2 className="text-3xl md:text-4xl font-montez text-sunflare-orange text-center mb-6">
+              Tu Destino Revelado
+            </h2>
+
+            <div className="space-y-6">
+              {/* Como la API devuelve un solo texto largo, usamos prediction.prediction */}
+              <div className="bg-nebula-black/40 rounded-xl p-4 md:p-6 border-l-4 border-sunflare-orange">
+                <h3 className="text-xl md:text-2xl font-truculenta text-sunflare-orange mb-3 flex items-center gap-2">
+                  🔮 La Profecía de Madame Web
+                </h3>
+                <p className="text-moonlight-linen font-truculenta leading-relaxed text-sm md:text-base whitespace-pre-line">
+                  {prediction.prediction}
+                </p>
+              </div>
+
+              {/* Añadimos la energía dominante que nos envía la API */}
+              <div className="bg-gradient-to-r from-sunflare-orange/20 to-cosmic-plum/20 rounded-xl p-4 md:p-6 text-center">
+                <p className="text-radiant-apricot font-truculenta leading-relaxed text-sm md:text-base italic">
+                  Energía dominante:{" "}
+                  <span className="capitalize font-bold">
+                    {prediction.dominant_energy}
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Decoración */}
+          <div className="flex justify-center items-center space-x-4 mt-8">
+            <div className="w-2 h-2 bg-sunflare-orange rounded-full animate-pulse"></div>
+            <div
+              className="w-1 h-1 bg-cosmic-plum rounded-full animate-pulse"
+              style={{ animationDelay: "0.3s" }}
+            ></div>
+            <div
+              className="w-2 h-2 bg-wink-pink rounded-full animate-pulse"
+              style={{ animationDelay: "0.6s" }}
+            ></div>
+            <div
+              className="w-1 h-1 bg-madame-mystic rounded-full animate-pulse"
+              style={{ animationDelay: "0.9s" }}
+            ></div>
+            <div
+              className="w-2 h-2 bg-sunflare-orange rounded-full animate-pulse"
+              style={{ animationDelay: "1.2s" }}
+            ></div>
+          </div>
+        </div>
+      )}
+
       {/* Mazo estirado en escalera */}
       {!revealed && availableCards.length > 0 && (
         <div className="relative">
@@ -317,7 +410,6 @@ export default function ArcaneReading() {
                     alt="Carta del tarot boca abajo"
                     className="w-full h-full object-cover rounded-lg"
                   />
-                  {/* Resplandor en hover */}
                   <div className="deck-card-glow"></div>
                 </div>
               ))}
@@ -337,35 +429,49 @@ export default function ArcaneReading() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex flex-col md:flex-row gap-6 items-start">
-              {/* Imagen */}
               <div className="w-full md:w-2/5 flex-shrink-0">
                 <img
-                  src={openedCard.arcaneImage.imageSrc}
-                  alt={openedCard.arcaneName}
-                  className="w-full rounded-xl shadow-2xl"
+                  src={openedCard.arcanaImage?.imageUrl}
+                  alt={openedCard.name}
+                  className="w-full rounded-2xl shadow-2xl"
                 />
               </div>
 
-              {/* Texto */}
               <div className="flex-1">
                 <h2 className="text-2xl md:text-3xl font-montez text-sunflare-orange mb-4">
-                  {openedCard.arcaneName}
+                  {openedCard.name}
                 </h2>
-                <p className="text-moonlight-linen font-truculenta leading-relaxed text-sm md:text-base mb-6">
-                  {openedCard.arcaneDescription}
-                </p>
 
-                {/* Info de la Diosa */}
-                {openedCard.goddessName && (
-                  <div className="bg-nebula-black/40 rounded-xl p-4 mb-4">
-                    <h3 className="text-lg font-truculenta text-wink-pink mb-2">
-                      Diosa: {openedCard.goddessName}
-                    </h3>
-                    <p className="text-moonlight-linen/90 font-truculenta text-sm leading-relaxed">
-                      {openedCard.goddessDescription}
+                {openedCard.themes && (
+                  <div className="mb-4">
+                    <p className="text-cosmic-plum font-truculenta text-sm font-medium mb-2">
+                      Temas:
                     </p>
+                    <div className="flex flex-wrap gap-2">
+                      {openedCard.themes.map((theme, index) => (
+                        <span
+                          key={index}
+                          className="px-3 py-1 bg-nebula-black/40 text-radiant-apricot rounded-full text-xs font-truculenta"
+                        >
+                          {theme}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 )}
+
+                <div className="mb-4">
+                  <p className="text-moonlight-linen/70 font-truculenta text-sm">
+                    <span className="text-wink-pink font-medium">Energía:</span>{" "}
+                    {openedCard.energy}
+                  </p>
+                  <p className="text-moonlight-linen/70 font-truculenta text-sm">
+                    <span className="text-wink-pink font-medium">Arcano:</span>{" "}
+                    {openedCard.arcana} •{" "}
+                    <span className="text-wink-pink font-medium">Número:</span>{" "}
+                    {openedCard.number}
+                  </p>
+                </div>
 
                 <button
                   onClick={() => setOpenedCard(null)}
