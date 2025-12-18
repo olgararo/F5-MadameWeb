@@ -1,26 +1,28 @@
 import { useEffect, useState } from "react";
 import { getAllCards } from "../services/tarotService";
 import CardList from "../components/CardList";
+import Lottie from "lottie-react";
+import crystalBallAnimation from "../assets/img/ani_crystalBall.json";
 
 export default function ArcaneGrid() {
   const [allCards, setAllCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   // Estados para pagination
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 8;
 
   useEffect(() => {
     const fetchCards = async () => {
-        //manejo de errores con try y catch
+      //manejo de errores con try y catch
       try {
         setLoading(true);
         const data = await getAllCards();
         setAllCards(data);
       } catch (err) {
-        setError('Error al cargar las cartas. Por favor, inténtalo de nuevo.');
-        console.error('Error:', err);
+        setError("Error al cargar las cartas. Por favor, inténtalo de nuevo.");
+        console.error("Error:", err);
       } finally {
         setLoading(false);
       }
@@ -37,7 +39,6 @@ export default function ArcaneGrid() {
     });
   }, [currentPage]);
 
-
   // Calcular paginación
   const totalCards = allCards.length;
   const totalPages = Math.ceil(totalCards / cardsPerPage);
@@ -47,13 +48,12 @@ export default function ArcaneGrid() {
 
   // Funciones de navegación con scroll al principio del todo
   const goToPrevious = () => {
-    setCurrentPage(prev => Math.max(prev - 1, 1));
+    setCurrentPage((prev) => Math.max(prev - 1, 1));
   };
 
   const goToNext = () => {
-    setCurrentPage(prev => Math.min(prev + 1, totalPages));
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
   };
-
 
   // Calcular rango mostrado
   const startCard = totalCards === 0 ? 0 : startIndex + 1;
@@ -62,14 +62,20 @@ export default function ArcaneGrid() {
   if (loading) {
     return (
       <main className="min-h-screen bg-nebula-black">
-        <h1 className="text-center text-3xl font-truculenta text-sunflare-orange py-8">
-          Arcanos y Diosas
-        </h1>
         <div className="flex items-center justify-center py-20">
           <div className="text-center">
+            <div className="mb-8 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+            <Lottie
+              animationData={crystalBallAnimation}
+              loop={true}
+              className="w-full h-full"
+            />
+          </div>
             {/* circulito animación de carga*/}
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sunflare-orange mx-auto mb-4"></div>
-            <p className="text-moonlight-linen font-truculenta">Cargando cartas del tarot...</p>
+            <p className="text-moonlight-linen font-truculenta">
+              Cargando cartas del tarot...
+            </p>
           </div>
         </div>
       </main>
@@ -79,14 +85,20 @@ export default function ArcaneGrid() {
   if (error) {
     return (
       <main className="min-h-screen bg-nebula-black">
-        <h1 className="text-center text-3xl font-truculenta text-sunflare-orange py-8">
-          Arcanos y Diosas
-        </h1>
         <div className="flex items-center justify-center py-20">
           <div className="text-center">
-            <p className="text-supernova-coral font-truculenta text-lg mb-4">{error}</p>
-            <button 
-              onClick={() => window.location.reload()} 
+            <div className="mb-8 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+            <Lottie
+              animationData={crystalBallAnimation}
+              loop={true}
+              className="w-full h-full"
+            />
+          </div>
+            <p className="text-supernova-coral font-truculenta text-lg mb-4">
+              {error}
+            </p>
+            <button
+              onClick={() => window.location.reload()}
               className="bg-sunflare-orange text-nebula-black px-6 py-2 rounded-lg font-truculenta hover:bg-supernova-coral transition"
             >
               Reintentar
@@ -98,28 +110,37 @@ export default function ArcaneGrid() {
   }
 
   return (
-    <main className="min-h-screen bg-nebula-black">
-      <h1 className="text-center text-3xl font-truculenta text-supernova-coral py-8">
-        Arcanos y Diosas
-      </h1>
-      
-      <div className="text-center mb-6">
-        <p className="text-moonlight-linen font-truculenta text-lg px-4">
-           Descubre los secretos del universo a través de los arcanos del tarot
-          científico.
-        </p>
-        <p className="text-moonlight-linen/80 font-truculenta text-lg max-w-2xl mx-auto px-4 leading-relaxed">
-          Cada carta revela la historia de una{" "}
-          <span className="text-cosmic-plum font-medium">
-            diosa de la tecnología{" "}
-          </span>
-          que cambió el mundo.
-        </p>
+    <main className="min-h-screen bg-gradient-to-b from-nebula-black via-galactic-purple/30 to-nebula-black text-moonlight-linen py-8 px-4">
+      <div className="text-center mb-8 relative">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-32 h-0.5 bg-gradient-to-r from-transparent via-sunflare-orange/30 to-transparent animate-pulse"></div>
+          <div
+            className="absolute top-2 right-1/4 w-24 h-0.5 bg-gradient-to-r from-transparent via-cosmic-plum/40 to-transparent animate-pulse"
+            style={{ animationDelay: "0.5s" }}
+          ></div>
+        </div>
+        <h1 className="text-4xl md:text-5xl font-montez text-sunflare-orange mb-3 animate-pulse mystic-text">
+          Arcanos y Diosas
+        </h1>
+
+        <div className="text-center mb-6">
+          <p className="text-moonlight-linen font-truculenta text-lg px-4">
+            Descubre los secretos del universo a través de los arcanos del tarot
+            científico.
+          </p>
+          <p className="text-moonlight-linen/80 font-truculenta text-lg max-w-2xl mx-auto px-4 leading-relaxed">
+            Cada carta revela la historia de una{" "}
+            <span className="text-cosmic-plum font-medium">
+              diosa de la tecnología{" "}
+            </span>
+            que cambió el mundo.
+          </p>
+        </div>
       </div>
 
       {/* circulitos decoración */}
       <div className="text-center mb-6">
-         <div className="flex justify-center items-center space-x-2 mt-2">
+        <div className="flex justify-center items-center space-x-2 mt-2">
           <div className="w-2 h-2 bg-cosmic-plum rounded-full animate-pulse"></div>
           <div className="w-1 h-1 bg-sunflare-orange rounded-full animate-pulse delay-300"></div>
           <div className="w-2 h-2 bg-wink-pink rounded-full animate-pulse delay-600"></div>
@@ -131,7 +152,9 @@ export default function ArcaneGrid() {
         <CardList cards={currentCards} />
       ) : (
         <div className="text-center py-10">
-          <p className="text-moonlight-linen font-truculenta">No se encontraron cartas</p>
+          <p className="text-moonlight-linen font-truculenta">
+            No se encontraron cartas
+          </p>
         </div>
       )}
 
@@ -144,12 +167,20 @@ export default function ArcaneGrid() {
             disabled={currentPage === 1}
             className={`group relative flex items-center space-x-2 px-6 py-3 rounded-lg font-truculenta text-sm transition-all duration-300 ${
               currentPage === 1
-                ? 'bg-galactic-purple/30 text-moonlight-linen/50 cursor-not-allowed'
-                : 'bg-galactic-purple/60 text-moonlight-linen hover:bg-cosmic-plum/60 hover:text-sunflare-orange hover:scale-105'
+                ? "bg-galactic-purple/30 text-moonlight-linen/50 cursor-not-allowed"
+                : "bg-galactic-purple/60 text-moonlight-linen hover:bg-cosmic-plum/60 hover:text-sunflare-orange hover:scale-105"
             }`}
           >
-            <svg className="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+            <svg
+              className="w-4 h-4 transition-transform group-hover:-translate-x-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
             </svg>
             <span>Anterior</span>
             {currentPage > 1 && (
@@ -163,7 +194,9 @@ export default function ArcaneGrid() {
               <span className="text-sunflare-orange font-truculenta font-bold text-lg">
                 {currentPage}
               </span>
-              <span className="text-moonlight-linen/70 font-truculenta text-sm mx-2">de</span>
+              <span className="text-moonlight-linen/70 font-truculenta text-sm mx-2">
+                de
+              </span>
               <span className="text-cosmic-plum font-truculenta font-bold text-lg">
                 {totalPages}
               </span>
@@ -176,13 +209,21 @@ export default function ArcaneGrid() {
             disabled={currentPage === totalPages}
             className={`group relative flex items-center space-x-2 px-6 py-3 rounded-lg font-truculenta text-sm transition-all duration-300 ${
               currentPage === totalPages
-                ? 'bg-galactic-purple/30 text-moonlight-linen/50 cursor-not-allowed'
-                : 'bg-galactic-purple/60 text-moonlight-linen hover:bg-cosmic-plum/60 hover:text-sunflare-orange hover:scale-105'
+                ? "bg-galactic-purple/30 text-moonlight-linen/50 cursor-not-allowed"
+                : "bg-galactic-purple/60 text-moonlight-linen hover:bg-cosmic-plum/60 hover:text-sunflare-orange hover:scale-105"
             }`}
           >
             <span>Siguiente</span>
-            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+            <svg
+              className="w-4 h-4 transition-transform group-hover:translate-x-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clipRule="evenodd"
+              />
             </svg>
             {currentPage < totalPages && (
               <div className="absolute -top-1 -right-1 w-2 h-2 bg-sunflare-orange rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -190,12 +231,11 @@ export default function ArcaneGrid() {
           </button>
         </div>
       )}
-{/* Texto indicativo paginación */}
- <div className="text-center mb-6">
+      {/* Texto indicativo paginación */}
+      <div className="text-center mb-6">
         <p className="text-radiant-apricot font-truculenta text-sm">
           Mostrando {startCard}-{endCard} de {totalCards} cartas
         </p>
-       
       </div>
 
       {/* Decoración mística inferior */}
