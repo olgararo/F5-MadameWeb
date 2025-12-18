@@ -336,19 +336,27 @@ export default function ArcaneReading() {
       {prediction && !loadingPrediction && (
         <div className="max-w-4xl mx-auto mb-8 animate-[fadeIn_1s_ease-out]">
           <div className="bg-galactic-purple/80 backdrop-blur-sm border-2 border-sunflare-orange/50 rounded-3xl p-6 md:p-8 shadow-2xl">
-            <h2 className="text-3xl md:text-4xl font-montez text-sunflare-orange text-center mb-6">
-              Tu Destino Revelado
+            <h2 className="text-3xl md:text-4xl font-truculenta text-sunflare-orange text-center mb-6">
+              Tu Revelación
             </h2>
 
             <div className="space-y-6">
               {/* Como la API devuelve un solo texto largo, usamos prediction.prediction */}
               <div className="bg-nebula-black/40 rounded-xl p-4 md:p-6 border-l-4 border-sunflare-orange">
-                <h3 className="text-xl md:text-2xl font-truculenta text-sunflare-orange mb-3 flex items-center gap-2">
-                  🔮 La Profecía de Madame Web
-                </h3>
                 <p className="text-moonlight-linen font-truculenta leading-relaxed text-sm md:text-base whitespace-pre-line">
                   {prediction.prediction}
                 </p>
+                {/* La firma estilo carta mística */}
+                <div className="mt-6 flex justify-end">
+                  <div className="text-right">
+                    <p className="text-xs text-moonlight-linen/40 font-truculenta uppercase tracking-widest mb-1">
+                      Sellado por el destino
+                    </p>
+                    <p className="text-2xl md:text-3xl font-montez text-sunflare-orange animate-pulse">
+                      fdo: Madame Web
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* Añadimos la energía dominante que nos envía la API */}
@@ -542,6 +550,103 @@ export default function ArcaneReading() {
           opacity: 1;
         }
 
+        /* Efecto Typewriter */
+        .typewriter-text {
+          overflow: hidden;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+          display: inline-block;
+          position: relative;
+        }
+
+        /* Cursor parpadeante solo durante la animación */
+        .typewriter-text::after {
+          content: '|';
+          position: absolute;
+          right: -2px;
+          animation: blink 0.7s infinite step-end;
+          color: rgba(255, 111, 60, 0.8);
+        }
+
+        /* Animación del cursor */
+        @keyframes blink {
+          0%, 50% { opacity: 1; }
+          51%, 100% { opacity: 0; }
+        }
+
+        /* Animación de escritura para cada sección */
+        .typewriter-past {
+          animation: typing-past 3s steps(100) 0.5s forwards;
+          max-width: 0;
+        }
+
+        .typewriter-present {
+          animation: typing-present 3s steps(100) 3.8s forwards;
+          max-width: 0;
+        }
+
+        .typewriter-future {
+          animation: typing-future 3s steps(100) 7.1s forwards;
+          max-width: 0;
+        }
+
+        .typewriter-message {
+          animation: typing-message 2s steps(80) 10.4s forwards;
+          max-width: 0;
+        }
+
+        /* Keyframes para cada sección */
+        @keyframes typing-past {
+          from { max-width: 0; }
+          to { max-width: 100%; }
+        }
+
+        @keyframes typing-present {
+          from { max-width: 0; }
+          to { max-width: 100%; }
+        }
+
+        @keyframes typing-future {
+          from { max-width: 0; }
+          to { max-width: 100%; }
+        }
+
+        @keyframes typing-message {
+          from { max-width: 0; }
+          to { max-width: 100%; }
+        }
+
+        /* Remover el cursor después de que termine la animación */
+        .typewriter-past {
+          animation: typing-past 3s steps(100) 0.5s forwards, 
+                     remove-cursor 0s 3.5s forwards;
+        }
+
+        .typewriter-present {
+          animation: typing-present 3s steps(100) 3.8s forwards,
+                     remove-cursor 0s 6.8s forwards;
+        }
+
+        .typewriter-future {
+          animation: typing-future 3s steps(100) 7.1s forwards,
+                     remove-cursor 0s 10.1s forwards;
+        }
+
+        .typewriter-message {
+          animation: typing-message 2s steps(80) 10.4s forwards,
+                     remove-cursor 0s 12.4s forwards;
+        }
+
+        @keyframes remove-cursor {
+          to { 
+            content: '';
+          }
+        }
+
+        .typewriter-text.typing-complete::after {
+          display: none;
+        }
+
         @media (min-width: 768px) {
           .deck-card {
             width: 140px;
@@ -564,6 +669,27 @@ export default function ArcaneReading() {
 
           .deck-card:hover {
             transform: rotate(calc(-15deg + var(--index) * (30deg / var(--total)))) translateY(-20px) scale(1.05);
+          }
+
+          /* Animaciones más rápidas en móvil */
+          .typewriter-past {
+            animation: typing-past 2s steps(100) 0.5s forwards,
+                       remove-cursor 0s 2.5s forwards;
+          }
+
+          .typewriter-present {
+            animation: typing-present 2s steps(100) 2.8s forwards,
+                       remove-cursor 0s 4.8s forwards;
+          }
+
+          .typewriter-future {
+            animation: typing-future 2s steps(100) 5.1s forwards,
+                       remove-cursor 0s 7.1s forwards;
+          }
+
+          .typewriter-message {
+            animation: typing-message 1.5s steps(80) 7.4s forwards,
+                       remove-cursor 0s 8.9s forwards;
           }
         }
 
