@@ -17,6 +17,8 @@ export default function ArcaneReading() {
   const [openedCard, setOpenedCard] = useState(null);
   const [prediction, setPrediction] = useState(null);
   const [loadingPrediction, setLoadingPrediction] = useState(false);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
 
   // Cargar todas las cartas al montar
   useEffect(() => {
@@ -34,6 +36,30 @@ export default function ArcaneReading() {
     };
     fetchCards();
   }, []);
+
+  // Efecto typewriter para la predicción
+  useEffect(() => {
+    if (!prediction || !prediction.prediction) return;
+
+    setDisplayedText("");
+    setIsTyping(true);
+
+    let currentIndex = 0;
+    const fullText = prediction.prediction;
+    const typingSpeed = 20; // Milisegundos por carácter (30ms = rápido pero legible)
+
+    const timer = setInterval(() => {
+      if (currentIndex < fullText.length) {
+        setDisplayedText(fullText.substring(0, currentIndex + 1));
+        currentIndex++;
+      } else {
+        setIsTyping(false);
+        clearInterval(timer);
+      }
+    }, typingSpeed);
+
+    return () => clearInterval(timer);
+  }, [prediction]);
 
   // Comprobar si una carta ya está seleccionada
   const isCardSelected = (cardId) => {
@@ -65,7 +91,6 @@ export default function ArcaneReading() {
         selectedCards.present.id,
         selectedCards.future.id
       );
-
       setPrediction(predictionData);
     } catch (err) {
       console.error("Error al obtener predicción:", err);
@@ -82,6 +107,8 @@ export default function ArcaneReading() {
     setOpenedCard(null);
     setPrediction(null);
     setError(null);
+    setDisplayedText("");
+    setIsTyping(false);
   };
 
   const canReveal =
@@ -336,60 +363,68 @@ export default function ArcaneReading() {
       {prediction && !loadingPrediction && (
         <div className="max-w-4xl mx-auto mb-8 animate-[fadeIn_1s_ease-out]">
           <div className="bg-galactic-purple/80 backdrop-blur-sm border-2 border-sunflare-orange/50 rounded-3xl p-6 md:p-8 shadow-2xl">
-            <h2 className="text-3xl md:text-4xl font-truculenta text-sunflare-orange text-center mb-6">
+            <h2 className="text-3xl md:text-4xl font-montez text-sunflare-orange text-center mb-6 animate-[fadeIn_0.5s_ease-out]">
               Tu Revelación
             </h2>
 
             <div className="space-y-6">
-              {/* Como la API devuelve un solo texto largo, usamos prediction.prediction */}
-              <div className="bg-nebula-black/40 rounded-xl p-4 md:p-6 border-l-4 border-sunflare-orange">
+              {/* Predicción completa con efecto typewriter REAL */}
+              <div className="bg-nebula-black/40 rounded-xl p-4 md:p-6 border-l-4 border-sunflare-orange animate-[fadeIn_0.5s_ease-out]">
                 <p className="text-moonlight-linen font-truculenta leading-relaxed text-sm md:text-base whitespace-pre-line">
-                  {prediction.prediction}
+                  {displayedText}
+                  {isTyping && <span className="typewriter-cursor">|</span>}
                 </p>
-                {/* La firma estilo carta mística */}
-                <div className="mt-6 flex justify-end">
-                  <div className="text-right">
-                    <p className="text-xs text-moonlight-linen/40 font-truculenta uppercase tracking-widest mb-1">
-                      Sellado por el destino
-                    </p>
-                    <p className="text-2xl md:text-3xl font-montez text-sunflare-orange animate-pulse">
-                      fdo: Madame Web
-                    </p>
+
+                {/* La firma estilo carta mística - solo aparece cuando termina de escribir */}
+                {!isTyping && (
+                  <div className="mt-6 flex justify-end animate-[fadeIn_0.5s_ease-out]">
+                    <div className="text-right">
+                      <p className="text-xs text-moonlight-linen/40 font-truculenta uppercase tracking-widest mb-1">
+                        Sellado por el destino, así que ajo y agua
+                      </p>
+                      <p className="text-lg md:text-3xl font-montez text-sunflare-orange">
+                        fdo: Madame Web
+                      </p>
+                    </div>
                   </div>
+                )}
+              </div>
+
+              {/* Energía dominante - solo aparece cuando termina de escribir */}
+              {!isTyping && prediction.dominant_energy && (
+                <div className="bg-gradient-to-r from-sunflare-orange/20 to-cosmic-plum/20 rounded-xl p-4 md:p-6 text-center animate-[fadeIn_0.5s_ease-out]">
+                  <p className="text-radiant-apricot font-truculenta leading-relaxed text-sm md:text-base italic">
+                    Energía dominante:{" "}
+                    <span className="capitalize font-bold">
+                      {prediction.dominant_energy}
+                    </span>
+                  </p>
                 </div>
-              </div>
-
-              {/* Añadimos la energía dominante que nos envía la API */}
-              <div className="bg-gradient-to-r from-sunflare-orange/20 to-cosmic-plum/20 rounded-xl p-4 md:p-6 text-center">
-                <p className="text-radiant-apricot font-truculenta leading-relaxed text-sm md:text-base italic">
-                  Energía dominante:{" "}
-                  <span className="capitalize font-bold">
-                    {prediction.dominant_energy}
-                  </span>
-                </p>
-              </div>
+              )}
             </div>
-          </div>
 
-          {/* Decoración */}
-          <div className="flex justify-center items-center space-x-4 mt-8">
-            <div className="w-2 h-2 bg-sunflare-orange rounded-full animate-pulse"></div>
-            <div
-              className="w-1 h-1 bg-cosmic-plum rounded-full animate-pulse"
-              style={{ animationDelay: "0.3s" }}
-            ></div>
-            <div
-              className="w-2 h-2 bg-wink-pink rounded-full animate-pulse"
-              style={{ animationDelay: "0.6s" }}
-            ></div>
-            <div
-              className="w-1 h-1 bg-madame-mystic rounded-full animate-pulse"
-              style={{ animationDelay: "0.9s" }}
-            ></div>
-            <div
-              className="w-2 h-2 bg-sunflare-orange rounded-full animate-pulse"
-              style={{ animationDelay: "1.2s" }}
-            ></div>
+            {/* Decoración - solo aparece cuando termina de escribir */}
+            {!isTyping && (
+              <div className="flex justify-center items-center space-x-4 mt-8 animate-[fadeIn_0.5s_ease-out]">
+                <div className="w-2 h-2 bg-sunflare-orange rounded-full animate-pulse"></div>
+                <div
+                  className="w-1 h-1 bg-cosmic-plum rounded-full animate-pulse"
+                  style={{ animationDelay: "0.3s" }}
+                ></div>
+                <div
+                  className="w-2 h-2 bg-wink-pink rounded-full animate-pulse"
+                  style={{ animationDelay: "0.6s" }}
+                ></div>
+                <div
+                  className="w-1 h-1 bg-madame-mystic rounded-full animate-pulse"
+                  style={{ animationDelay: "0.9s" }}
+                ></div>
+                <div
+                  className="w-2 h-2 bg-sunflare-orange rounded-full animate-pulse"
+                  style={{ animationDelay: "1.2s" }}
+                ></div>
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -397,8 +432,15 @@ export default function ArcaneReading() {
       {/* Mazo estirado en escalera */}
       {!revealed && availableCards.length > 0 && (
         <div className="relative">
-          <p className="text-center text-radiant-apricot font-truculenta text-base md:text-lg mb-6 italic">
-            "Elige tu camino: cada carta es una mirada al destino"
+          <p className="text-center mb-6 px-4">
+            <span
+              className="block text-radiant-apricot font-truculenta text-lg md:text-xl italic 
+                   opacity-90 animate-[pulse_4s_infinite] hover:opacity-100 transition-opacity duration-500 
+                   drop-shadow-[0_0_10px_rgba(255,111,60,0.3)]"
+            >
+              "Elige tres y susurra: 'Tengo el control de mi vida'. Mentir es
+              gratis, adelante."
+            </span>
           </p>
 
           <div className="deck-container">
@@ -441,7 +483,7 @@ export default function ArcaneReading() {
                 <img
                   src={openedCard.arcanaImage?.imageUrl}
                   alt={openedCard.name}
-                  className="w-full rounded-2xl shadow-2xl"
+                  className="w-full rounded-xl shadow-2xl"
                 />
               </div>
 
@@ -452,14 +494,14 @@ export default function ArcaneReading() {
 
                 {openedCard.themes && (
                   <div className="mb-4">
-                    <p className="text-cosmic-plum font-truculenta text-sm font-medium mb-2">
+                    <p className="text-cosmic-plum font-truculenta text-lg font-medium mb-2">
                       Temas:
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {openedCard.themes.map((theme, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-nebula-black/40 text-radiant-apricot rounded-full text-xs font-truculenta"
+                          className="px-3 py-1 bg-nebula-black/40 text-radiant-apricot rounded-full text-base font-truculenta"
                         >
                           {theme}
                         </span>
@@ -469,11 +511,11 @@ export default function ArcaneReading() {
                 )}
 
                 <div className="mb-4">
-                  <p className="text-moonlight-linen/70 font-truculenta text-sm">
+                  <p className="text-moonlight-linen/70 font-truculenta text-lg">
                     <span className="text-wink-pink font-medium">Energía:</span>{" "}
                     {openedCard.energy}
                   </p>
-                  <p className="text-moonlight-linen/70 font-truculenta text-sm">
+                  <p className="text-moonlight-linen/70 font-truculenta text-lg">
                     <span className="text-wink-pink font-medium">Arcano:</span>{" "}
                     {openedCard.arcana} •{" "}
                     <span className="text-wink-pink font-medium">Número:</span>{" "}
@@ -498,7 +540,7 @@ export default function ArcaneReading() {
         .deck-container {
           overflow-x: auto;
           overflow-y: hidden;
-          padding: 2rem 1rem;
+          padding: 3rem 1rem 2rem 1rem; /* Padding-top aumentado para evitar corte en hover */
           -webkit-overflow-scrolling: touch;
         }
 
@@ -550,101 +592,17 @@ export default function ArcaneReading() {
           opacity: 1;
         }
 
-        /* Efecto Typewriter */
-        .typewriter-text {
-          overflow: hidden;
-          white-space: pre-wrap;
-          word-wrap: break-word;
-          display: inline-block;
-          position: relative;
-        }
-
-        /* Cursor parpadeante solo durante la animación */
-        .typewriter-text::after {
-          content: '|';
-          position: absolute;
-          right: -2px;
-          animation: blink 0.7s infinite step-end;
+        /* Cursor parpadeante para el efecto typewriter */
+        .typewriter-cursor {
           color: rgba(255, 111, 60, 0.8);
+          animation: blink 0.7s infinite step-end;
+          font-weight: 100;
+          margin-left: 2px;
         }
 
-        /* Animación del cursor */
         @keyframes blink {
           0%, 50% { opacity: 1; }
           51%, 100% { opacity: 0; }
-        }
-
-        /* Animación de escritura para cada sección */
-        .typewriter-past {
-          animation: typing-past 3s steps(100) 0.5s forwards;
-          max-width: 0;
-        }
-
-        .typewriter-present {
-          animation: typing-present 3s steps(100) 3.8s forwards;
-          max-width: 0;
-        }
-
-        .typewriter-future {
-          animation: typing-future 3s steps(100) 7.1s forwards;
-          max-width: 0;
-        }
-
-        .typewriter-message {
-          animation: typing-message 2s steps(80) 10.4s forwards;
-          max-width: 0;
-        }
-
-        /* Keyframes para cada sección */
-        @keyframes typing-past {
-          from { max-width: 0; }
-          to { max-width: 100%; }
-        }
-
-        @keyframes typing-present {
-          from { max-width: 0; }
-          to { max-width: 100%; }
-        }
-
-        @keyframes typing-future {
-          from { max-width: 0; }
-          to { max-width: 100%; }
-        }
-
-        @keyframes typing-message {
-          from { max-width: 0; }
-          to { max-width: 100%; }
-        }
-
-        /* Remover el cursor después de que termine la animación */
-        .typewriter-past {
-          animation: typing-past 3s steps(100) 0.5s forwards, 
-                     remove-cursor 0s 3.5s forwards;
-        }
-
-        .typewriter-present {
-          animation: typing-present 3s steps(100) 3.8s forwards,
-                     remove-cursor 0s 6.8s forwards;
-        }
-
-        .typewriter-future {
-          animation: typing-future 3s steps(100) 7.1s forwards,
-                     remove-cursor 0s 10.1s forwards;
-        }
-
-        .typewriter-message {
-          animation: typing-message 2s steps(80) 10.4s forwards,
-                     remove-cursor 0s 12.4s forwards;
-        }
-
-        @keyframes remove-cursor {
-          to { 
-            content: '';
-          }
-        }
-
-        .typewriter-text.typing-complete::after {
-          display: none;
         }
 
         @media (min-width: 768px) {
@@ -652,6 +610,10 @@ export default function ArcaneReading() {
             width: 140px;
             height: 220px;
             margin-left: -90px;
+          }
+          
+          .deck-container {
+            padding: 4rem 1rem 2rem 1rem; /* Más padding en desktop */
           }
         }
 
@@ -669,27 +631,6 @@ export default function ArcaneReading() {
 
           .deck-card:hover {
             transform: rotate(calc(-15deg + var(--index) * (30deg / var(--total)))) translateY(-20px) scale(1.05);
-          }
-
-          /* Animaciones más rápidas en móvil */
-          .typewriter-past {
-            animation: typing-past 2s steps(100) 0.5s forwards,
-                       remove-cursor 0s 2.5s forwards;
-          }
-
-          .typewriter-present {
-            animation: typing-present 2s steps(100) 2.8s forwards,
-                       remove-cursor 0s 4.8s forwards;
-          }
-
-          .typewriter-future {
-            animation: typing-future 2s steps(100) 5.1s forwards,
-                       remove-cursor 0s 7.1s forwards;
-          }
-
-          .typewriter-message {
-            animation: typing-message 1.5s steps(80) 7.4s forwards,
-                       remove-cursor 0s 8.9s forwards;
           }
         }
 
