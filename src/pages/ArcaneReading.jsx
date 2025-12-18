@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import { getAllCards } from "../services/tarotService";
+import { getAllCards } from "../services/readingService";
 import cardBack from "../assets/img/img_cardback.png";
+import Lottie from "lottie-react";
+import crystalBallAnimation from "../assets/img/ani_crystalBall.json";
 
 export default function ArcaneReading() {
   const [allCards, setAllCards] = useState([]);
@@ -73,6 +75,14 @@ export default function ArcaneReading() {
     return (
       <div className="min-h-screen bg-nebula-black flex items-center justify-center">
         <div className="text-center">
+          {/* Animación Lottie de Bola de Cristal con el json */}
+          <div className="mb-8 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+            <Lottie
+              animationData={crystalBallAnimation}
+              loop={true}
+              className="w-full h-full"
+            />
+          </div>
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sunflare-orange mx-auto mb-4"></div>
           <p className="text-moonlight-linen font-truculenta">
             Preparando el oráculo...
