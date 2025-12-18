@@ -37,7 +37,7 @@ function App() {
             <div className="flex items-center justify-between">
               {/* Logo/Título */}
               <Link to="/" className="group" onClick={handleLinkClick}>
-                <h1 className="text-4xl font-montez text-sunflare-orange group-hover:text-supernova-coral transition-colors duration-300 drop-shadow-lg">
+                <h1 className="text-4xl font-montez text-cosmic-plum group-hover:text-supernova-coral transition-colors duration-300 drop-shadow-lg">
                   Madame Web
                 </h1>
                 <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-sunflare-orange to-supernova-coral transition-all duration-500"></div>
