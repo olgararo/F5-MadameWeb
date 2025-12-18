@@ -218,11 +218,11 @@ function App() {
             <div className="text-center space-y-2">
               <p className="font-truculenta text-moonlight-linen text-sm">
                 © 2025 · Proyecto realizado por{" "}
-                <span className="text-sunflare-orange font-medium">Olga Ramírez</span>{" "}
-                para el Bootcamp Fullstack
+                <span className="text-sunflare-orange font-medium">OlgaRaRo</span>
+                , pitonisa junior y programadora Fullstack
               </p>
               <p className="font-truculenta text-moonlight-linen text-sm">
-                <span className="text-cosmic-plum">(Femcoders – Factoría F5)</span>
+                <span className="text-cosmic-plum">· Madame Web ·</span>
               </p>
               <p className="font-truculenta text-radiant-apricot text-xs opacity-80">
                 Todos los contenidos tienen fines educativos y de divulgación.
