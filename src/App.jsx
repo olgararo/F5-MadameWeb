@@ -74,7 +74,7 @@ function App() {
                 <li>
                   <Link 
                     to="/" 
-                    className={`font-truculenta text-sm transition-all duration-300 relative group ${
+                    className={`font-truculenta text-lg transition-all duration-300 relative group ${
                       isActiveLink('/') 
                         ? 'text-sunflare-orange' 
                         : 'text-moonlight-linen hover:text-cosmic-plum'
@@ -89,7 +89,7 @@ function App() {
                 <li>
                   <Link 
                     to="/grid" 
-                    className={`font-truculenta text-sm transition-all duration-300 relative group ${
+                    className={`font-truculenta text-lg transition-all duration-300 relative group ${
                       isActiveLink('/grid') 
                         ? 'text-sunflare-orange' 
                         : 'text-moonlight-linen hover:text-cosmic-plum'
@@ -104,7 +104,7 @@ function App() {
                 <li>
                   <Link 
                     to="/reading" 
-                    className={`font-truculenta text-sm transition-all duration-300 relative group ${
+                    className={`font-truculenta text-lg transition-all duration-300 relative group ${
                       isActiveLink('/reading') 
                         ? 'text-sunflare-orange' 
                         : 'text-moonlight-linen hover:text-cosmic-plum'
