@@ -334,7 +334,7 @@ export default function ArcaneReading() {
         {revealed && (
           <button
             onClick={handleReset}
-            className="px-6 md:px-8 py-2 md:py-3 bg-cosmic-plum/30 hover:bg-cosmic-plum/50 text-moonlight-linen rounded-full font-truculenta text-sm md:text-base transition-all duration-300 border border-cosmic-plum/50"
+            className="px-6 md:px-8 py-2 md:py-3 bg-cosmic-plum/30 hover:bg-cosmic-plum/50 text-moonlight-linen rounded-full font-truculenta text-base md:text-xl font-bold transition-all duration-300 border border-cosmic-plum/50"
           >
             ✨ Nueva Lectura
           </button>
@@ -370,7 +370,7 @@ export default function ArcaneReading() {
             <div className="space-y-6">
               {/* Predicción completa con efecto typewriter REAL */}
               <div className="bg-nebula-black/40 rounded-xl p-4 md:p-6 border-l-4 border-sunflare-orange animate-[fadeIn_0.5s_ease-out]">
-                <p className="text-moonlight-linen font-truculenta leading-relaxed text-sm md:text-base whitespace-pre-line">
+                <p className="text-moonlight-linen font-badscript leading-relaxed text-2xl md:text-xl whitespace-pre-line">
                   {displayedText}
                   {isTyping && <span className="typewriter-cursor">|</span>}
                 </p>
@@ -393,7 +393,7 @@ export default function ArcaneReading() {
               {/* Energía dominante - solo aparece cuando termina de escribir */}
               {!isTyping && prediction.dominant_energy && (
                 <div className="bg-gradient-to-r from-sunflare-orange/20 to-cosmic-plum/20 rounded-xl p-4 md:p-6 text-center animate-[fadeIn_0.5s_ease-out]">
-                  <p className="text-radiant-apricot font-truculenta leading-relaxed text-sm md:text-base italic">
+                  <p className="text-radiant-apricot font-truculenta leading-relaxed text-base md:text-lg italic">
                     Energía dominante:{" "}
                     <span className="capitalize font-bold">
                       {prediction.dominant_energy}
