@@ -1,5 +1,8 @@
-// API Base URL
-const API_BASE_URL = "https://madame-web-api.onrender.com/api";
+const API_BASE_URL = import.meta.env.DEV
+  ? "http://localhost:3001/api"
+  : "https://madame-web-api.onrender.com/api";
+
+console.log(`Conectado a: ${API_BASE_URL}`);
 
 /**
  * Función para obtener TODAS las cartas
