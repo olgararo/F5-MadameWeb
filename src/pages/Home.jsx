@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import madameWebImg from "../assets/img/img_madameWeb.png";
+import madameWebImg from "../assets/img/img_madameWeb.webp";
 
 export default function Home() {
   return (

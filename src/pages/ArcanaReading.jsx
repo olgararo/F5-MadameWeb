@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getAllCards, getPrediction } from "../services/tarotService";
-import cardBack from "../assets/img/img_cardback.png";
+import cardBack from "../assets/img/img_cardback.webp";
 import Lottie from "lottie-react";
 import crystalBallAnimation from "../assets/img/ani_crystalBall.json";
 

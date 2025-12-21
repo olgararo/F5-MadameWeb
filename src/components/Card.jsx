@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import cardBack from "../assets/img/img_cardback.png"; 
+import cardBack from "../assets/img/img_cardback.webp"; 
 
 const Card = ({ arcana }) => {
   // is showing front or back
