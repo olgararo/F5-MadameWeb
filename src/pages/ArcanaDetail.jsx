@@ -86,7 +86,7 @@ export default function ArcanaDetail() {
               <img
                 src={card.arcanaImage.imageUrl}
                 alt={card.arcanaImage.altText}
-                className="w-full max-w-md mx-auto rounded-lg shadow-lg"
+                className="w-full max-w-md mx-auto rounded-3xl shadow-lg"
               />
               <div className="mt-4 text-center">
                 <p className="text-xs text-radiant-apricot">

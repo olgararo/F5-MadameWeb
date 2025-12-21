@@ -6,11 +6,11 @@ console.log(`Conectado a: ${API_BASE_URL}`);
 
 /**
  * Función para obtener TODAS las cartas
- * GET /api/cards
+ * GET /api/arcanas
  */
 export async function getAllCards() {
   try {
-    const response = await fetch(`${API_BASE_URL}/cards`);
+    const response = await fetch(`${API_BASE_URL}/arcanas`);
 
     if (!response.ok) {
       throw new Error(`Error HTTP: ${response.status}`);
@@ -25,11 +25,11 @@ export async function getAllCards() {
 
 /**
  * Función para obtener una carta por ID
- * GET /api/cards/:id
+ * GET /api/arcanas/:id
  */
 export async function getCardById(id) {
   try {
-    const response = await fetch(`${API_BASE_URL}/cards/${id}`);
+    const response = await fetch(`${API_BASE_URL}/arcanas/${id}`);
 
     if (!response.ok) {
       throw new Error(`Error HTTP: ${response.status}`);
