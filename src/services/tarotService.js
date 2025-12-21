@@ -1,6 +1,6 @@
 
 //API
-const API_BASE_URL = 'https://6872278c76a5723aacd3cbb3.mockapi.io/api/v1/tarot';
+const API_BASE_URL = 'https://madame-web-api.onrender.com';
 
 // Función pra obtener TODAS las cartas
 export async function getAllCards() {
