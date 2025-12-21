@@ -95,7 +95,7 @@ function App() {
                         : 'text-moonlight-linen hover:text-cosmic-plum'
                     }`}
                   >
-                    Arcanos & Diosas
+                    Arcanos
                     <div className={`absolute -bottom-1 left-0 h-0.5 bg-sunflare-orange transition-all duration-300 ${
                       isActiveLink('/grid') ? 'w-full' : 'w-0 group-hover:w-full'
                     }`}></div>
@@ -163,7 +163,7 @@ function App() {
                       : 'text-moonlight-linen hover:text-sunflare-orange hover:bg-cosmic-plum/30'
                   }`}
                 >
-                  Arcanos & Diosas
+                  Arcanos
                 </Link>
               </li>
               <li>

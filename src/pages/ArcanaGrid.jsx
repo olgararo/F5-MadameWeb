@@ -65,12 +65,12 @@ export default function ArcanaGrid() {
         <div className="flex items-center justify-center py-20">
           <div className="text-center">
             <div className="mb-8 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-            <Lottie
-              animationData={crystalBallAnimation}
-              loop={true}
-              className="w-full h-full"
-            />
-          </div>
+              <Lottie
+                animationData={crystalBallAnimation}
+                loop={true}
+                className="w-full h-full"
+              />
+            </div>
             {/* circulito animación de carga*/}
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sunflare-orange mx-auto mb-4"></div>
             <p className="text-moonlight-linen font-truculenta">
@@ -88,12 +88,12 @@ export default function ArcanaGrid() {
         <div className="flex items-center justify-center py-20">
           <div className="text-center">
             <div className="mb-8 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-            <Lottie
-              animationData={crystalBallAnimation}
-              loop={true}
-              className="w-full h-full"
-            />
-          </div>
+              <Lottie
+                animationData={crystalBallAnimation}
+                loop={true}
+                className="w-full h-full"
+              />
+            </div>
             <p className="text-supernova-coral font-truculenta text-lg mb-4">
               {error}
             </p>
@@ -120,21 +120,21 @@ export default function ArcanaGrid() {
           ></div>
         </div>
         <h1 className="text-4xl md:text-5xl font-montez text-sunflare-orange mb-3 animate-pulse mystic-text">
-          Arcanos y Diosas
+          Los Arcanos
         </h1>
 
         <div className="text-center mb-6">
           <p className="text-moonlight-linen font-truculenta text-lg px-4">
-            Descubre los secretos del universo a través de los arcanos del tarot
-            científico.
+            Explora las energías que mueven los hilos de tu existencia.{" "}
           </p>
-          <p className="text-moonlight-linen/80 font-truculenta text-lg max-w-2xl mx-auto px-4 leading-relaxed">
-            Cada carta revela la historia de una{" "}
-            <span className="text-cosmic-plum font-medium">
-              diosa de la tecnología{" "}
-            </span>
-            que cambió el mundo.
+          <p className="text-moonlight-linen/80 font-truculenta text-sm md:text-base px-4 mt-2">
+            Cada carta revela la historia de los guías espirituales que el siglo XXI se merece,
+            no los que necesita.{" "}
           </p>
+          <p className="text-moonlight-linen/80 font-truculenta text-sm md:text-base px-4">
+            Pasa y acepta tu destino, total, <span className="text-cosmic-plum font-medium">no tienes otra opción.</span>
+          </p>
+          
         </div>
       </div>
 

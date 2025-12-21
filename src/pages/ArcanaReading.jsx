@@ -171,14 +171,16 @@ export default function ArcanaReading() {
         <h1 className="text-4xl md:text-5xl font-montez text-sunflare-orange mb-3 animate-pulse mystic-text">
           Lectura de las Tres Cartas
         </h1>
-        <p className="text-radiant-apricot font-truculenta text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-moonlight-linen font-truculenta text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
           Descubre lo que el destino guarda tras el velo de lo desconocido
         </p>
         <p className="text-moonlight-linen/80 font-truculenta text-sm md:text-base mt-2">
-          Elige tres cartas para revelar tu{" "}
-          <span className="text-cosmic-plum font-medium">Pasado</span>,{" "}
-          <span className="text-sunflare-orange font-medium">Presente</span> y{" "}
-          <span className="text-wink-pink font-medium">Futuro</span>
+          Elige tres cartas para revelar el peso de tu{" "}
+          <span className="text-cosmic-plum font-medium">Pasado</span>, la
+          confusión de tu{" "}
+          <span className="text-sunflare-orange font-medium">Presente</span> y
+          la ironía de tu{" "}
+          <span className="text-wink-pink font-medium">Futuro</span>{" "}
         </p>
 
         <div className="flex justify-center items-center space-x-3 mt-4">
