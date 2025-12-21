@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getCardById } from "../services/tarotService";
 
-export default function ArcaneDetail() {
+export default function ArcanaDetail() {
   const { id } = useParams();
   const [card, setCard] = useState(null);
   const [loading, setLoading] = useState(true);

@@ -18,9 +18,9 @@ El proyecto está construido con **React + Vite**, usando **TailwindCSS** para e
 |   |-- Reading.jsx       # Animación y lógica de lectura
 |-- pages
 |   |-- About.jsx
-|   |-- ArcaneDetail.jsx
-|   |-- ArcaneGrid.jsx    # Página principal con paginación
-|   |-- ArcaneReading.jsx
+|   |-- ArcanaDetail.jsx
+|   |-- ArcanaGrid.jsx    # Página principal con paginación
+|   |-- ArcanaReading.jsx
 |   |-- Home.jsx
 |-- router
 |   |-- Router.jsx        # Configuración de rutas

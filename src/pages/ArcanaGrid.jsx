@@ -4,7 +4,7 @@ import CardList from "../components/CardList";
 import Lottie from "lottie-react";
 import crystalBallAnimation from "../assets/img/ani_crystalBall.json";
 
-export default function ArcaneGrid() {
+export default function ArcanaGrid() {
   const [allCards, setAllCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

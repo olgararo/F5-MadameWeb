@@ -4,7 +4,7 @@ import cardBack from "../assets/img/img_cardback.png";
 import Lottie from "lottie-react";
 import crystalBallAnimation from "../assets/img/ani_crystalBall.json";
 
-export default function ArcaneReading() {
+export default function ArcanaReading() {
   const [allCards, setAllCards] = useState([]);
   const [selectedCards, setSelectedCards] = useState({
     past: null,
