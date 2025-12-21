@@ -372,7 +372,7 @@ export default function ArcanaReading() {
             <div className="space-y-6">
               {/* Predicción completa con efecto typewriter REAL */}
               <div className="bg-nebula-black/40 rounded-xl p-4 md:p-6 border-l-4 border-sunflare-orange animate-[fadeIn_0.5s_ease-out]">
-                <p className="text-moonlight-linen font-special-gothic leading-relaxed italic text-xl md:text-lg whitespace-pre-line">
+                <p className="text-moonlight-linen font-special-gothic leading-relaxed italic text-lg md:text-base whitespace-pre-line">
                   {displayedText}
                   {isTyping && <span className="typewriter-cursor">|</span>}
                 </p>
