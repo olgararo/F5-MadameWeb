@@ -72,7 +72,6 @@ export default function ArcanaDetail() {
   return (
     <div className="min-h-screen bg-nebula-black text-moonlight-linen">
       <div className="container mx-auto px-4 py-8">
-        {/* Botón de navegación */}
         <Link
           to="/grid"
           className="inline-flex items-center text-sunflare-orange hover:text-supernova-coral transition mb-6"
@@ -85,16 +84,13 @@ export default function ArcanaDetail() {
           <div className="space-y-6">
             <div className="bg-galactic-purple rounded-2xl p-6">
               <img
-                src={card.arcaneImage.imageSrc}
-                alt={card.arcaneName}
-                className="w-full max-w-md mx-auto rounded-lg shadow-lg"
+                src={card.arcanaImage.imageUrl}
+                alt={card.arcanaImage.altText}
+                className="w-full max-w-md mx-auto rounded-3xl shadow-lg"
               />
               <div className="mt-4 text-center">
                 <p className="text-xs text-radiant-apricot">
-                  Imagen: {card.arcaneImage.author}
-                </p>
-                <p className="text-xs text-radiant-apricot opacity-70">
-                  {card.arcaneImage.license}
+                  {card.arcanaImage.author}
                 </p>
               </div>
             </div>
@@ -104,46 +100,58 @@ export default function ArcanaDetail() {
           <div className="space-y-6">
             <div>
               <p className="text-sunflare-orange font-truculenta text-lg">
-                Arcano {card.arcaneNumber}
+                Arcano {card.number}
               </p>
               <h1 className="text-4xl font-montez text-cosmic-plum mb-4">
-                {card.arcaneName}
+                {card.name}
               </h1>
-              <p className="text-moonlight-linen leading-relaxed">
-                {card.arcaneDescription}
-              </p>
-            </div>
 
-            {/* Información de la Diosa científica */}
-            <div className="bg-galactic-purple rounded-2xl p-6">
-              <h2 className="text-2xl font-truculenta text-wink-pink mb-4">
-                Diosa Asociada: {card.goddessName}
-              </h2>
-
-              <div className="flex flex-col md:flex-row gap-4 mb-4">
-                <img
-                  src={card.goddessImage.imageSrc}
-                  alt={card.goddessName}
-                  className="w-32 h-32 rounded-lg object-cover mx-auto md:mx-0"
-                />
-                <div className="flex-1">
-                  <p className="text-moonlight-linen leading-relaxed text-sm">
-                    {card.goddessDescription}
-                  </p>
-                </div>
+              {/* Descripción */}
+              <div className="mb-6">
+                <h2 className="text-xl font-truculenta text-wink-pink mb-2">
+                  Significado
+                </h2>
+                <p className="text-moonlight-linen leading-relaxed">
+                  {card.description}
+                </p>
               </div>
 
-              <div className="text-xs text-radiant-apricot">
-                <p>Imagen: {card.goddessImage.author}</p>
-                {card.goddessImage.licenseUrl && (
-                  <a
-                    href={card.goddessImage.licenseUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-sunflare-orange transition"
-                  >
-                    Ver licencia
-                  </a>
+              {/* Interpretación irónica */}
+              <div className="bg-galactic-purple rounded-2xl p-6">
+                <h2 className="text-xl font-truculenta text-sunflare-orange mb-2">
+                  Interpretación Realista
+                </h2>
+                <p className="text-moonlight-linen leading-relaxed italic">
+                  {card.ironicInterpretation}
+                </p>
+              </div>
+
+              {/* Info adicional */}
+              <div className="mt-6 space-y-2">
+                <p className="text-moonlight-linen/70 font-truculenta">
+                  <span className="text-wink-pink font-medium">Energía:</span>{" "}
+                  {card.energy}
+                </p>
+                <p className="text-moonlight-linen/70 font-truculenta">
+                  <span className="text-wink-pink font-medium">Arcano:</span>{" "}
+                  {card.arcana}
+                </p>
+                {card.themes && (
+                  <div className="mt-4">
+                    <p className="text-wink-pink font-truculenta font-medium mb-2">
+                      Temas:
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {card.themes.map((theme, index) => (
+                        <span
+                          key={index}
+                          className="px-3 py-1 bg-nebula-black/40 text-radiant-apricot rounded-full text-sm"
+                        >
+                          {theme}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 )}
               </div>
             </div>

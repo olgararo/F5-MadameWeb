@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAllCards, getPrediction } from "../services/readingService";
+import { getAllCards, getPrediction } from "../services/tarotService";
 import cardBack from "../assets/img/img_cardback.png";
 import Lottie from "lottie-react";
 import crystalBallAnimation from "../assets/img/ani_crystalBall.json";
@@ -432,17 +432,6 @@ export default function ArcanaReading() {
       {/* Mazo estirado en escalera */}
       {!revealed && availableCards.length > 0 && (
         <div className="relative">
-          <p className="text-center mb-6 px-4">
-            <span
-              className="block text-radiant-apricot font-truculenta text-lg md:text-xl italic 
-                   opacity-90 animate-[pulse_4s_infinite] hover:opacity-100 transition-opacity duration-500 
-                   drop-shadow-[0_0_10px_rgba(255,111,60,0.3)]"
-            >
-              "Elige tres y susurra: 'Tengo el control de mi vida'. Mentir es
-              gratis, adelante."
-            </span>
-          </p>
-
           <div className="deck-container">
             <div className="deck-spread">
               {availableCards.map((card, index) => (
@@ -483,7 +472,7 @@ export default function ArcanaReading() {
                 <img
                   src={openedCard.arcanaImage?.imageUrl}
                   alt={openedCard.name}
-                  className="w-full rounded-xl shadow-2xl"
+                  className="w-full rounded-2xl shadow-xl"
                 />
               </div>
 
