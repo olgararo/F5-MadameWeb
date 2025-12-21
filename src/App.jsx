@@ -225,7 +225,7 @@ function App() {
                 <span className="text-cosmic-plum">· Madame Web ·</span>
               </p>
               <p className="font-truculenta text-radiant-apricot text-xs opacity-80">
-                Todos los contenidos tienen fines educativos y de divulgación.
+                Todos los contenidos tienen fines educativos y de entretenimiento.
               </p>
               
               {/* Decoración mística */}
