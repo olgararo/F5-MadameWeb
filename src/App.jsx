@@ -145,7 +145,7 @@ function App() {
                 <Link 
                   to="/" 
                   onClick={handleLinkClick}
-                  className={`block w-full text-center font-truculenta text-base py-3 px-4 rounded-lg transition-all duration-300 ${
+                  className={`block w-full text-center font-truculenta text-xl py-3 px-4 rounded-lg transition-all duration-300 ${
                     isActiveLink('/') 
                       ? 'text-sunflare-orange bg-cosmic-plum/50' 
                       : 'text-moonlight-linen hover:text-sunflare-orange hover:bg-cosmic-plum/30'
@@ -159,7 +159,7 @@ function App() {
                 <Link 
                   to="/reading" 
                   onClick={handleLinkClick}
-                  className={`block w-full text-center font-truculenta text-base py-3 px-4 rounded-lg transition-all duration-300 ${
+                  className={`block w-full text-center font-truculenta text-xl py-3 px-4 rounded-lg transition-all duration-300 ${
                     isActiveLink('/reading') 
                       ? 'text-sunflare-orange bg-cosmic-plum/50' 
                       : 'text-moonlight-linen hover:text-sunflare-orange hover:bg-cosmic-plum/30'
@@ -172,7 +172,7 @@ function App() {
                 <Link 
                   to="/grid" 
                   onClick={handleLinkClick}
-                  className={`block w-full text-center font-truculenta text-base py-3 px-4 rounded-lg transition-all duration-300 ${
+                  className={`block w-full text-center font-truculenta text-xl py-3 px-4 rounded-lg transition-all duration-300 ${
                     isActiveLink('/grid') 
                       ? 'text-sunflare-orange bg-cosmic-plum/50' 
                       : 'text-moonlight-linen hover:text-sunflare-orange hover:bg-cosmic-plum/30'
