@@ -86,21 +86,7 @@ function App() {
                     }`}></div>
                   </Link>
                 </li>
-                <li>
-                  <Link 
-                    to="/grid" 
-                    className={`font-truculenta text-lg transition-all duration-300 relative group ${
-                      isActiveLink('/grid') 
-                        ? 'text-sunflare-orange' 
-                        : 'text-moonlight-linen hover:text-cosmic-plum'
-                    }`}
-                  >
-                    Arcanos
-                    <div className={`absolute -bottom-1 left-0 h-0.5 bg-sunflare-orange transition-all duration-300 ${
-                      isActiveLink('/grid') ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}></div>
-                  </Link>
-                </li>
+                
                 <li>
                   <Link 
                     to="/reading" 
@@ -113,6 +99,21 @@ function App() {
                     Lectura
                     <div className={`absolute -bottom-1 left-0 h-0.5 bg-sunflare-orange transition-all duration-300 ${
                       isActiveLink('/reading') ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}></div>
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/grid" 
+                    className={`font-truculenta text-lg transition-all duration-300 relative group ${
+                      isActiveLink('/grid') 
+                        ? 'text-sunflare-orange' 
+                        : 'text-moonlight-linen hover:text-cosmic-plum'
+                    }`}
+                  >
+                    Galería
+                    <div className={`absolute -bottom-1 left-0 h-0.5 bg-sunflare-orange transition-all duration-300 ${
+                      isActiveLink('/grid') ? 'w-full' : 'w-0 group-hover:w-full'
                     }`}></div>
                   </Link>
                 </li>
@@ -153,19 +154,7 @@ function App() {
                   Inicio
                 </Link>
               </li>
-              <li>
-                <Link 
-                  to="/grid" 
-                  onClick={handleLinkClick}
-                  className={`block w-full text-center font-truculenta text-base py-3 px-4 rounded-lg transition-all duration-300 ${
-                    isActiveLink('/grid') 
-                      ? 'text-sunflare-orange bg-cosmic-plum/50' 
-                      : 'text-moonlight-linen hover:text-sunflare-orange hover:bg-cosmic-plum/30'
-                  }`}
-                >
-                  Arcanos
-                </Link>
-              </li>
+              
               <li>
                 <Link 
                   to="/reading" 
@@ -177,6 +166,19 @@ function App() {
                   }`}
                 >
                   Lectura
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/grid" 
+                  onClick={handleLinkClick}
+                  className={`block w-full text-center font-truculenta text-base py-3 px-4 rounded-lg transition-all duration-300 ${
+                    isActiveLink('/grid') 
+                      ? 'text-sunflare-orange bg-cosmic-plum/50' 
+                      : 'text-moonlight-linen hover:text-sunflare-orange hover:bg-cosmic-plum/30'
+                  }`}
+                >
+                  Galería
                 </Link>
               </li>
               {/*<li>

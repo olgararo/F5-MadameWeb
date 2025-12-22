@@ -57,7 +57,7 @@ export default function Home() {
 
           {/* CTA Button */}
           <div className="mb-8">
-            <Link to="/grid">
+            <Link to="/reading">
               <button className="group relative px-12 py-4 bg-gradient-to-r from-sunflare-orange to-supernova-coral rounded-full font-truculenta text-xl font-bold text-nebula-black hover:from-supernova-coral hover:to-sunflare-orange transition-all duration-500 transform hover:scale-110 hover:shadow-2xl">
                 {/* Efecto de brillo en el botón */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-moonlight-linen/30 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

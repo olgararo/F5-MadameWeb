@@ -120,7 +120,7 @@ export default function ArcanaGrid() {
           ></div>
         </div>
         <h1 className="text-4xl md:text-5xl font-montez text-sunflare-orange mb-3 animate-pulse mystic-text">
-          Los Arcanos
+          Galería de los Arcanos
         </h1>
 
         <div className="text-center mb-6">
