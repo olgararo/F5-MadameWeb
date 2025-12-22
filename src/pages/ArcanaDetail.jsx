@@ -74,7 +74,7 @@ export default function ArcanaDetail() {
       <div className="container mx-auto px-4 py-8">
         <Link
           to="/grid"
-          className="inline-flex items-center text-sunflare-orange hover:text-supernova-coral transition mb-6"
+          className="inline-flex items-center font-truculenta text-sunflare-orange hover:text-supernova-coral transition mb-6"
         >
           ← Volver a las cartas
         </Link>
