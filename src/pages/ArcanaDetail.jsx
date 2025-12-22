@@ -172,14 +172,14 @@ export default function ArcanaDetail() {
           <div className="flex flex-col md:flex-row justify-center items-center gap-4">
             <Link to="/grid">
               <button className="group relative px-8 py-3 bg-gradient-to-r from-cosmic-plum to-madame-mystic rounded-full font-truculenta text-lg font-bold text-moonlight-linen hover:from-madame-mystic hover:to-cosmic-plum transition-all duration-500 transform hover:scale-110 hover:shadow-2xl">
-                <span className="relative z-10">✨ Ver Galería Completa</span>
+                <span className="relative z-10">Ver Galería Completa</span>
                 <div className="absolute -top-1 -right-1 w-2 h-2 bg-sunflare-orange rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </button>
             </Link>
 
             <Link to="/reading">
               <button className="group relative px-8 py-3 bg-gradient-to-r from-sunflare-orange to-supernova-coral rounded-full font-truculenta text-lg font-bold text-nebula-black hover:from-supernova-coral hover:to-sunflare-orange transition-all duration-500 transform hover:scale-110 hover:shadow-2xl">
-                <span className="relative z-10">🔮 Consulta el Oráculo</span>
+                <span className="relative z-10">Consulta el Oráculo</span>
                 <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-cosmic-plum rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </button>
             </Link>

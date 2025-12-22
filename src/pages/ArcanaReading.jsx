@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; 
 import { getAllCards, getPrediction } from "../services/tarotService";
 import cardBack from "../assets/img/img_cardback.webp";
 import Lottie from "lottie-react";
@@ -24,7 +25,7 @@ export default function ArcanaReading() {
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", 
+      behavior: "smooth",
     });
   }, []);
 
@@ -346,7 +347,7 @@ export default function ArcanaReading() {
             onClick={handleReset}
             className="px-6 md:px-8 py-2 md:py-3 bg-cosmic-plum/30 hover:bg-cosmic-plum/50 text-moonlight-linen rounded-full font-truculenta text-base md:text-xl font-bold transition-all duration-300 border border-cosmic-plum/50"
           >
-            ✨ Nueva Lectura
+            🔮 Nueva Lectura
           </button>
         )}
       </div>
@@ -413,7 +414,7 @@ export default function ArcanaReading() {
               )}
             </div>
 
-            {/* Decoración - solo aparece cuando termina de escribir */}
+            {/* Decoración - solo aparece cuando termina de escribir 
             {!isTyping && (
               <div className="flex justify-center items-center space-x-4 mt-8 animate-[fadeIn_0.5s_ease-out]">
                 <div className="w-2 h-2 bg-sunflare-orange rounded-full animate-pulse"></div>
@@ -434,7 +435,7 @@ export default function ArcanaReading() {
                   style={{ animationDelay: "1.2s" }}
                 ></div>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       )}
@@ -524,12 +525,37 @@ export default function ArcanaReading() {
 
                 <button
                   onClick={() => setOpenedCard(null)}
-                  className="w-full md:w-auto px-8 py-3 bg-sunflare-orange hover:bg-supernova-coral text-nebula-black rounded-lg font-truculenta font-bold transition-all duration-300"
+                  className="w-full md:w-auto px-8 py-3 bg-cosmic-plum/30 hover:bg-cosmic-plum/50 text-moonlight-linen rounded-full font-truculenta text-base md:text-xl font-bold transition-all duration-300 border border-cosmic-plum/50"
                 >
                   Cerrar
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* CTA para ir a la galería - Solo se muestra si ya se ha revelado */}
+      {revealed && !loadingPrediction && (
+        <div className="max-w-4xl mx-auto mb-12">
+          <div className="text-center">
+            <div className="flex justify-center items-center space-x-4 mb-6">
+              <div className="w-8 h-0.5 bg-gradient-to-r from-transparent to-cosmic-plum opacity-50"></div>
+              <div className="w-2 h-2 bg-sunflare-orange rounded-full animate-pulse opacity-60"></div>
+              <div className="w-1 h-1 bg-wink-pink rounded-full animate-pulse delay-500 opacity-40"></div>
+              <div className="w-2 h-2 bg-madame-mystic rounded-full animate-pulse delay-1000 opacity-50"></div>
+              <div className="w-8 h-0.5 bg-gradient-to-l from-transparent to-cosmic-plum opacity-50"></div>
+            </div>
+
+            <Link to="/grid">
+              <button className="group relative px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-cosmic-plum to-madame-mystic rounded-full font-truculenta text-lg md:text-xl font-bold text-moonlight-linen hover:from-madame-mystic hover:to-cosmic-plum transition-all duration-500 transform hover:scale-110 hover:shadow-2xl">
+                <span className="relative z-10">
+                  Explora la Galería
+                </span>
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-sunflare-orange rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-supernova-coral rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity delay-200"></div>
+              </button>
+            </Link>
           </div>
         </div>
       )}
