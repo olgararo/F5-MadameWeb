@@ -20,6 +20,14 @@ export default function ArcanaReading() {
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
 
+  // Scroll to top cuando se monta el componente
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", 
+    });
+  }, []);
+
   // Cargar todas las cartas al montar
   useEffect(() => {
     const fetchCards = async () => {
