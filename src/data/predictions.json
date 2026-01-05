@@ -1,0 +1,571 @@
+[
+  {
+    "id": 1,
+    "type": "introduccion",
+    "subtype": "energia_positiva",
+    "text": "Las estrellas se han alineado para revelarte verdades que preferirías ignorar, aunque parece que el cosmos ha decidido darte un respiro.",
+    "conditions": { "dominant_energy": "positiva" }
+  },
+  {
+    "id": 2,
+    "type": "introduccion",
+    "subtype": "energia_negativa",
+    "text": "Veamos qué nuevo micro-desastre te depara el cosmos hoy, ya que la energía de tus cartas es más densa que el silencio en una cena familiar incómoda.",
+    "conditions": { "dominant_energy": "negativa" }
+  },
+  {
+    "id": 3,
+    "type": "introduccion",
+    "subtype": "energia_neutra",
+    "text": "Tu tirada es un reflejo de la vida misma: ni fu ni fa, un montón de cosas pasando sin que ninguna parezca especialmente relevante.",
+    "conditions": { "dominant_energy": "neutra" }
+  },
+  {
+    "id": 10,
+    "type": "transicion",
+    "subtype": "conector_simple",
+    "text": "y para más inri",
+    "conditions": null
+  },
+  {
+    "id": 11,
+    "type": "transicion",
+    "subtype": "contraste_energias",
+    "text": "pero sorprendentemente",
+    "conditions": { "energy_combination": ["positiva", "negativa"] }
+  },
+  {
+    "id": 12,
+    "type": "transicion",
+    "subtype": "conector_reafirmante",
+    "text": "y por si fuera poco",
+    "conditions": null
+  },
+  {
+    "id": 13,
+    "type": "transicion",
+    "subtype": "puente_futuro",
+    "text": "lo que nos lleva inevitablemente a que",
+    "conditions": null
+  },
+  {
+    "id": 14,
+    "type": "transicion",
+    "subtype": "adicional",
+    "text": "además",
+    "conditions": null
+  },
+  {
+    "id": 15,
+    "type": "transicion",
+    "subtype": "contraste",
+    "text": "aunque curiosamente",
+    "conditions": null
+  },
+  {
+    "id": 16,
+    "type": "transicion",
+    "subtype": "remate",
+    "text": "y para rematar la jugada",
+    "conditions": null
+  },
+  {
+    "id": 17,
+    "type": "transicion",
+    "subtype": "consecuencia",
+    "text": "lo que nos lleva a que",
+    "conditions": null
+  },
+  {
+    "id": 18,
+    "type": "transicion",
+    "subtype": "temporal",
+    "text": "y mientras tanto",
+    "conditions": null
+  },
+  {
+    "id": 19,
+    "type": "transicion",
+    "subtype": "evidencia",
+    "text": "y como era de esperar",
+    "conditions": null
+  },
+  {
+    "id": 20,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_nuevos_comienzos",
+    "text": "Tu pasado está lleno de 'nuevos comienzos' que abandonaste tan rápido como tus propósitos de año nuevo",
+    "conditions": { "themes": ["nuevos comienzos", "riesgo"], "position": 1 }
+  },
+  {
+    "id": 21,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_nuevos_comienzos",
+    "text": "te sitúas en un presente donde cada lunes promete un cambio radical que olvidas el martes por la mañana",
+    "conditions": { "themes": ["nuevos comienzos", "riesgo"], "position": 2 }
+  },
+  {
+    "id": 22,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_nuevos_comienzos",
+    "text": "el futuro estará plagado de intentos de reinvención que acabarán, como siempre, en el sofá comiendo patatas con culpabilidad.",
+    "conditions": { "themes": ["nuevos comienzos", "riesgo"], "position": 3 }
+  },
+  {
+    "id": 23,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_poder",
+    "text": "Tu historial demuestra un gran 'poder' para ignorar tus responsabilidades hasta el último segundo posible",
+    "conditions": { "themes": ["poder", "acción"], "position": 1 }
+  },
+  {
+    "id": 24,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_poder",
+    "text": "actualmente ejerces tu poder dejando en visto los mensajes importantes mientras ves memes",
+    "conditions": { "themes": ["poder", "acción"], "position": 2 }
+  },
+  {
+    "id": 25,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_poder",
+    "text": "en el futuro dominarás el multitasking o más bien el arte de parecer ocupado sin estar haciendo absolutamente nada útil.",
+    "conditions": { "themes": ["poder", "acción"], "position": 3 }
+  },
+  {
+    "id": 26,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_intuicion",
+    "text": "Siempre has presumido de una 'intuición' que curiosamente te llevó a tomar las decisiones más cuestionables",
+    "conditions": {
+      "themes": ["intuición", "misterio", "secretos"],
+      "position": 1
+    }
+  },
+  {
+    "id": 27,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_intuicion",
+    "text": "ahora tu intuición te grita que hagas algo productivo aunque tú prefieres ignorarla olímpicamente",
+    "conditions": {
+      "themes": ["intuición", "misterio", "secretos"],
+      "position": 2
+    }
+  },
+  {
+    "id": 28,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_intuicion",
+    "text": "tu intuición futura se limitará a adivinar si el táper de la nevera todavía es comestible.",
+    "conditions": {
+      "themes": ["intuición", "misterio", "secretos"],
+      "position": 3
+    }
+  },
+  {
+    "id": 29,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_autoridad",
+    "text": "Tu relación con la autoridad ha sido tensa porque solo respetas la voz del GPS",
+    "conditions": {
+      "themes": ["autoridad", "control", "estructura"],
+      "position": 1
+    }
+  },
+  {
+    "id": 30,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_autoridad",
+    "text": "en el presente ejerces el máximo 'control' sobre tu vida retrasando una tarea importante para sentir que eres tú quien decide cuándo hacerla",
+    "conditions": {
+      "themes": ["autoridad", "control", "estructura"],
+      "position": 2
+    }
+  },
+  {
+    "id": 31,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_autoridad",
+    "text": "el futuro te verá perdiendo la batalla contra la única autoridad real: los captchas para saber si eres humano o un robot.",
+    "conditions": {
+      "themes": ["autoridad", "control", "estructura"],
+      "position": 3
+    }
+  },
+  {
+    "id": 32,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_amor",
+    "text": "En el pasado buscabas el amor con la misma estrategia caótica con la que buscas las llaves del coche",
+    "conditions": { "themes": ["amor", "unión", "relaciones"], "position": 1 }
+  },
+  {
+    "id": 33,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_amor",
+    "text": "tu vida amorosa actual tiene menos emoción que leer los términos y condiciones de una web",
+    "conditions": { "themes": ["amor", "unión", "relaciones"], "position": 2 }
+  },
+  {
+    "id": 34,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_amor",
+    "text": "el futuro te depara una relación estable y duradera con el algoritmo de recomendación de series.",
+    "conditions": { "themes": ["amor", "unión", "relaciones"], "position": 3 }
+  },
+  {
+    "id": 35,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_victoria",
+    "text": "Tus victorias pasadas se resumen en aquella vez que ganaste una discusión imaginaria en la ducha",
+    "conditions": { "themes": ["victoria", "ambición"], "position": 1 }
+  },
+  {
+    "id": 36,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_victoria",
+    "text": "ahora mismo tu mayor victoria es haberte levantado de la cama antes del mediodía",
+    "conditions": { "themes": ["victoria", "ambición"], "position": 2 }
+  },
+  {
+    "id": 37,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_victoria",
+    "text": "tu gran triunfo futuro será montar un mueble de IKEA sin que te sobren piezas importantes.",
+    "conditions": { "themes": ["victoria", "ambición"], "position": 3 }
+  },
+  {
+    "id": 38,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_introspeccion",
+    "text": "Has pasado por una introspección tan profunda que casi olvidas cómo interactuar con humanos reales",
+    "conditions": {
+      "themes": ["introspección", "soledad", "sabiduría"],
+      "position": 1
+    }
+  },
+  {
+    "id": 39,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_introspeccion",
+    "text": "tu momento zen actual consiste en mirar al vacío mientras se carga un vídeo",
+    "conditions": {
+      "themes": ["introspección", "soledad", "sabiduría"],
+      "position": 2
+    }
+  },
+  {
+    "id": 40,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_introspeccion",
+    "text": "el futuro te traerá más soledad reflexiva, especialmente cuando nadie entienda tus referencias a los memes de los Simpsons.",
+    "conditions": {
+      "themes": ["introspección", "soledad", "sabiduría"],
+      "position": 3
+    }
+  },
+  {
+    "id": 41,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_cambio",
+    "text": "El cambio ha sido constante en tu vida, sobre todo el cambio de opinión a mitad de una frase",
+    "conditions": { "themes": ["cambio", "ciclos", "suerte"], "position": 1 }
+  },
+  {
+    "id": 42,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_cambio",
+    "text": "estás en un ciclo donde mover los muebles de sitio cuenta como renovación espiritual",
+    "conditions": { "themes": ["cambio", "ciclos", "suerte"], "position": 2 }
+  },
+  {
+    "id": 43,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_cambio",
+    "text": "tu futuro reserva un cambio trascendental: aceptar que esos pantalones ya no te van a entrar, así que regálalos o llévalos al Humana.",
+    "conditions": { "themes": ["cambio", "ciclos", "suerte"], "position": 3 }
+  },
+  {
+    "id": 44,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_equilibrio",
+    "text": "En el pasado entendías el equilibrio como comer ensalada después de una pizza familiar",
+    "conditions": {
+      "themes": ["equilibrio", "verdad", "consecuencias"],
+      "position": 1
+    }
+  },
+  {
+    "id": 45,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_equilibrio",
+    "text": "buscas el equilibrio compensando cinco minutos de trabajo con una hora de descanso merecido",
+    "conditions": {
+      "themes": ["equilibrio", "verdad", "consecuencias"],
+      "position": 2
+    }
+  },
+  {
+    "id": 46,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_equilibrio",
+    "text": "alcanzarás la armonía total cuando aceptes que siempre elegirás la fila más lenta del supermercado.",
+    "conditions": {
+      "themes": ["equilibrio", "verdad", "consecuencias"],
+      "position": 3
+    }
+  },
+  {
+    "id": 47,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_transformacion",
+    "text": "Has vivido una transformación radical pasando de tener sueños a tener mucho sueño",
+    "conditions": {
+      "themes": ["transformación", "fin de ciclo", "pérdida"],
+      "position": 1
+    }
+  },
+  {
+    "id": 48,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_transformacion",
+    "text": "te estás convirtiendo en esa persona que se emociona más por un descuento que por salir de fiesta",
+    "conditions": {
+      "themes": ["transformación", "fin de ciclo", "pérdida"],
+      "position": 2
+    }
+  },
+  {
+    "id": 49,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_transformacion",
+    "text": "tu evolución final llegará el día que prefieras quedarte en casa regando las plantas.",
+    "conditions": {
+      "themes": ["transformación", "fin de ciclo", "pérdida"],
+      "position": 3
+    }
+  },
+  {
+    "id": 50,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_adiccion",
+    "text": "Tu pasado revela una adicción a comprar agendas creyendo que organizarían tu vida por arte de magia",
+    "conditions": {
+      "themes": ["adicción", "materialismo", "limitaciones"],
+      "position": 1
+    }
+  },
+  {
+    "id": 51,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_adiccion",
+    "text": "ahora eres adicto a ver gente limpiando en internet para sentir que has hecho algo útil",
+    "conditions": {
+      "themes": ["adicción", "materialismo", "limitaciones"],
+      "position": 2
+    }
+  },
+  {
+    "id": 52,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_adiccion",
+    "text": "en el futuro desarrollarás una sana dependencia a cancelar planes en el último momento.",
+    "conditions": {
+      "themes": ["adicción", "materialismo", "limitaciones"],
+      "position": 3
+    }
+  },
+  {
+    "id": 53,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_caos",
+    "text": "Tu pasado es un caos comparable al cajón de los cables que guardas por si acaso",
+    "conditions": { "themes": ["caos", "revelación", "crisis"], "position": 1 }
+  },
+  {
+    "id": 54,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_caos",
+    "text": "navegas un caos organizado donde procrastinas cinco tareas diferentes simultáneamente",
+    "conditions": { "themes": ["caos", "revelación", "crisis"], "position": 2 }
+  },
+  {
+    "id": 55,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_caos",
+    "text": "el futuro te reserva una crisis nerviosa intentando entender tu propia declaración de la renta.",
+    "conditions": { "themes": ["caos", "revelación", "crisis"], "position": 3 }
+  },
+  {
+    "id": 56,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_esperanza",
+    "text": "Vivías con la esperanza ingenua de despertar un día siendo una persona productiva",
+    "conditions": {
+      "themes": ["esperanza", "fe", "inspiración"],
+      "position": 1
+    }
+  },
+  {
+    "id": 57,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_esperanza",
+    "text": "tu fe se reduce a ese segundo de tensión antes de que el datáfono apruebe tu tarjeta",
+    "conditions": {
+      "themes": ["esperanza", "fe", "inspiración"],
+      "position": 2
+    }
+  },
+  {
+    "id": 58,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_esperanza",
+    "text": "mantendrás la esperanza de encontrar aguacates baratos en su punto exacto de maduración.",
+    "conditions": {
+      "themes": ["esperanza", "fe", "inspiración"],
+      "position": 3
+    }
+  },
+  {
+    "id": 59,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_miedo",
+    "text": "Tu mayor miedo siempre fue dar 'me gusta' por error a una foto de hace tres años",
+    "conditions": { "themes": ["ilusión", "miedo", "ansiedad"], "position": 1 }
+  },
+  {
+    "id": 60,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_miedo",
+    "text": "vives con el terror constante de que alguien te llame por teléfono en lugar de escribirte",
+    "conditions": { "themes": ["ilusión", "miedo", "ansiedad"], "position": 2 }
+  },
+  {
+    "id": 61,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_miedo",
+    "text": "el futuro te enfrentará al pánico de quedarte sin batería en un evento social aburrido.",
+    "conditions": { "themes": ["ilusión", "miedo", "ansiedad"], "position": 3 }
+  },
+  {
+    "id": 62,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_exito",
+    "text": "Para ti el éxito era un concepto abstracto que le ocurría a otra gente",
+    "conditions": { "themes": ["éxito", "alegría", "claridad"], "position": 1 }
+  },
+  {
+    "id": 63,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_exito",
+    "text": "tu definición actual de éxito es conseguir que la planta que te regalaron no muera hoy",
+    "conditions": { "themes": ["éxito", "alegría", "claridad"], "position": 2 }
+  },
+  {
+    "id": 64,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_exito",
+    "text": "tu mayor logro será despertarte un minuto antes de la alarma sintiéndote invencible.",
+    "conditions": { "themes": ["éxito", "alegría", "claridad"], "position": 3 }
+  },
+  {
+    "id": 65,
+    "type": "desarrollo_carta1",
+    "subtype": "tema_evaluacion",
+    "text": "Te diste cuenta de que la mayoría de tus problemas se arreglaban con dinero o una siesta",
+    "conditions": {
+      "themes": ["evaluación", "despertar", "redención"],
+      "position": 1
+    }
+  },
+  {
+    "id": 66,
+    "type": "desarrollo_carta2",
+    "subtype": "tema_evaluacion",
+    "text": "ahora evalúas tus decisiones vitales basándote exclusivamente en la ley del mínimo esfuerzo",
+    "conditions": {
+      "themes": ["evaluación", "despertar", "redención"],
+      "position": 2
+    }
+  },
+  {
+    "id": 67,
+    "type": "desarrollo_carta3",
+    "subtype": "tema_evaluacion",
+    "text": "serás juzgado en el futuro por tus historial de búsqueda, aunque probablemente te indulten por pena.",
+    "conditions": {
+      "themes": ["evaluación", "despertar", "redención"],
+      "position": 3
+    }
+  },
+  {
+    "id": 80,
+    "type": "cierre",
+    "subtype": "consejo_inutil",
+    "text": "Así que ya sabes, sigue ignorando al universo como haces con las actualizaciones de software.",
+    "conditions": null
+  },
+  {
+    "id": 81,
+    "type": "cierre",
+    "subtype": "realidad_check",
+    "text": "En resumen, deberías beber más agua y quejarte un poco menos, o al menos con más gracia.",
+    "conditions": null
+  },
+  {
+    "id": 82,
+    "type": "cierre",
+    "subtype": "falsa_esperanza",
+    "text": "Pero no te agobies, la responsabilidad de arruinar tu vida sigue siendo completamente tuya.",
+    "conditions": null
+  },
+  {
+    "id": 83,
+    "type": "cierre",
+    "subtype": "nihilismo_millennial",
+    "text": "De todas formas, no te preocupes demasiado, el fin del mundo te pillará probablemente mirando memes en el baño.",
+    "conditions": null
+  },
+  {
+    "id": 84,
+    "type": "cierre",
+    "subtype": "ego_check",
+    "text": "Recuerda que eres el protagonista de tu propia vida, aunque a veces parezcas un extra sin diálogo en una película de bajo presupuesto.",
+    "conditions": null
+  },
+  {
+    "id": 85,
+    "type": "cierre",
+    "subtype": "optimismo_toxico",
+    "text": "Pero mira el lado positivo, al menos hoy no te ha caído un meteorito encima, aunque el día todavía no ha terminado.",
+    "conditions": null
+  },
+  {
+    "id": 86,
+    "type": "cierre",
+    "subtype": "diseño_pobre",
+    "text": "Concluyendo, el universo tiene un plan maestro para ti, pero se nota que lo ha diseñado alguien con muy pocas ganas de trabajar.",
+    "conditions": null
+  },
+  {
+    "id": 87,
+    "type": "cierre",
+    "subtype": "perspectiva_cosmica",
+    "text": "Así que relájate, nada de lo que hagas hoy importará realmente cuando el sol se trague la Tierra dentro de unos millones de años.",
+    "conditions": null
+  },
+  {
+    "id": 88,
+    "type": "cierre",
+    "subtype": "consejo_financiero",
+    "text": "En fin, sigue buscando respuestas en el tarot en lugar de en tu cuenta bancaria, seguro que así te va muchísimo mejor, máquina.",
+    "conditions": null
+  },
+  {
+    "id": 89,
+    "type": "cierre",
+    "subtype": "salud_mental",
+    "text": "De todos modos, un poco de terapia y dejar de mirar el móvil a las tres de la mañana te vendrían mejor que cualquier predicción.",
+    "conditions": null
+  }
+]
