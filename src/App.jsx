@@ -1,6 +1,8 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
+import githubIcon from "./assets/img/icon/github_winkpink.svg";
+import linkedinIcon from "./assets/img/icon/linkedin_winkpink.svg";
 
 function App() {
   const location = useLocation();
@@ -11,7 +13,7 @@ function App() {
   };
 
   // Ocultar navbar en la home
-  const isHomePage = location.pathname === '/';
+  const isHomePage = location.pathname === "/";
 
   // Función para cerrar el menú móvil al hacer clic en un enlace
   const handleLinkClick = () => {
@@ -23,101 +25,115 @@ function App() {
       {/* Navbar con animaciones - Oculta en home */}
       {!isHomePage && (
         <header className="relative">
-        {/* Haces de luz animados de fondo */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-2 -left-4 w-32 h-1 bg-gradient-to-r from-transparent via-sunflare-orange to-transparent opacity-30 animate-pulse"></div>
-          <div className="absolute -top-1 left-20 w-24 h-0.5 bg-gradient-to-r from-transparent via-cosmic-plum to-transparent opacity-40 animate-pulse delay-1000"></div>
-          <div className="absolute -top-3 right-16 w-28 h-1 bg-gradient-to-r from-transparent via-wink-pink to-transparent opacity-25 animate-pulse delay-2000"></div>
-          <div className="absolute top-0 right-4 w-20 h-0.5 bg-gradient-to-r from-transparent via-supernova-coral to-transparent opacity-35 animate-pulse delay-500"></div>
-        </div>
-        
-        {/* Navbar principal */}
-        <nav className="relative z-10 bg-galactic-purple/80 backdrop-blur-sm border-b border-cosmic-plum/50">
-          <div className="container mx-auto px-4 py-4">
-            <div className="flex items-center justify-between">
-              {/* Logo/Título */}
-              <Link to="/" className="group" onClick={handleLinkClick}>
-                <h1 className="text-4xl font-montez text-cosmic-plum group-hover:text-supernova-coral transition-colors duration-300 drop-shadow-lg">
-                  Madame Web
-                </h1>
-                <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-sunflare-orange to-supernova-coral transition-all duration-500"></div>
-              </Link>
+          {/* Haces de luz animados de fondo */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute -top-2 -left-4 w-32 h-1 bg-gradient-to-r from-transparent via-sunflare-orange to-transparent opacity-30 animate-pulse"></div>
+            <div className="absolute -top-1 left-20 w-24 h-0.5 bg-gradient-to-r from-transparent via-cosmic-plum to-transparent opacity-40 animate-pulse delay-1000"></div>
+            <div className="absolute -top-3 right-16 w-28 h-1 bg-gradient-to-r from-transparent via-wink-pink to-transparent opacity-25 animate-pulse delay-2000"></div>
+            <div className="absolute top-0 right-4 w-20 h-0.5 bg-gradient-to-r from-transparent via-supernova-coral to-transparent opacity-35 animate-pulse delay-500"></div>
+          </div>
 
-              {/* Botón hamburguesa - Solo en móvil */}
-              <button 
-                className="md:hidden text-2xl px-3 py-2 text-sunflare-orange hover:text-supernova-coral hover:bg-cosmic-plum/30 rounded-xl transition-all duration-300" 
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                {isOpen ? (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24px"
-                    viewBox="0 -960 960 960"
-                    width="24px"
-                    fill="currentColor">
-                    <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-                  </svg>
-                ) : (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24px"
-                    viewBox="0 -960 960 960"
-                    width="24px"
-                    fill="currentColor">
-                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-                  </svg>
-                )}
-              </button>
+          {/* Navbar principal */}
+          <nav className="relative z-10 bg-galactic-purple/80 backdrop-blur-sm border-b border-cosmic-plum/50">
+            <div className="container mx-auto px-4 py-4">
+              <div className="flex items-center justify-between">
+                {/* Logo/Título */}
+                <Link to="/" className="group" onClick={handleLinkClick}>
+                  <h1 className="text-4xl font-montez text-cosmic-plum group-hover:text-supernova-coral transition-colors duration-300 drop-shadow-lg">
+                    Madame Web
+                  </h1>
+                  <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-sunflare-orange to-supernova-coral transition-all duration-500"></div>
+                </Link>
 
-              {/* Links de navegación - Solo para desktop */}
-              <ul className="hidden md:flex space-x-8">
-                <li>
-                  <Link 
-                    to="/" 
-                    className={`font-truculenta text-lg transition-all duration-300 relative group ${
-                      isActiveLink('/') 
-                        ? 'text-sunflare-orange' 
-                        : 'text-moonlight-linen hover:text-cosmic-plum'
-                    }`}
-                  >
-                    Inicio
-                    <div className={`absolute -bottom-1 left-0 h-0.5 bg-sunflare-orange transition-all duration-300 ${
-                      isActiveLink('/') ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}></div>
-                  </Link>
-                </li>
-                
-                <li>
-                  <Link 
-                    to="/reading" 
-                    className={`font-truculenta text-lg transition-all duration-300 relative group ${
-                      isActiveLink('/reading') 
-                        ? 'text-sunflare-orange' 
-                        : 'text-moonlight-linen hover:text-cosmic-plum'
-                    }`}
-                  >
-                    Lectura
-                    <div className={`absolute -bottom-1 left-0 h-0.5 bg-sunflare-orange transition-all duration-300 ${
-                      isActiveLink('/reading') ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}></div>
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/grid" 
-                    className={`font-truculenta text-lg transition-all duration-300 relative group ${
-                      isActiveLink('/grid') 
-                        ? 'text-sunflare-orange' 
-                        : 'text-moonlight-linen hover:text-cosmic-plum'
-                    }`}
-                  >
-                    Galería
-                    <div className={`absolute -bottom-1 left-0 h-0.5 bg-sunflare-orange transition-all duration-300 ${
-                      isActiveLink('/grid') ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}></div>
-                  </Link>
-                </li>
-                {/*<li>
+                {/* Botón hamburguesa - Solo en móvil */}
+                <button
+                  className="md:hidden text-2xl px-3 py-2 text-sunflare-orange hover:text-supernova-coral hover:bg-cosmic-plum/30 rounded-xl transition-all duration-300"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  {isOpen ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24px"
+                      viewBox="0 -960 960 960"
+                      width="24px"
+                      fill="currentColor"
+                    >
+                      <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24px"
+                      viewBox="0 -960 960 960"
+                      width="24px"
+                      fill="currentColor"
+                    >
+                      <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    </svg>
+                  )}
+                </button>
+
+                {/* Links de navegación - Solo para desktop */}
+                <ul className="hidden md:flex space-x-8">
+                  <li>
+                    <Link
+                      to="/"
+                      className={`font-truculenta text-lg transition-all duration-300 relative group ${
+                        isActiveLink("/")
+                          ? "text-sunflare-orange"
+                          : "text-moonlight-linen hover:text-cosmic-plum"
+                      }`}
+                    >
+                      Inicio
+                      <div
+                        className={`absolute -bottom-1 left-0 h-0.5 bg-sunflare-orange transition-all duration-300 ${
+                          isActiveLink("/")
+                            ? "w-full"
+                            : "w-0 group-hover:w-full"
+                        }`}
+                      ></div>
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="/reading"
+                      className={`font-truculenta text-lg transition-all duration-300 relative group ${
+                        isActiveLink("/reading")
+                          ? "text-sunflare-orange"
+                          : "text-moonlight-linen hover:text-cosmic-plum"
+                      }`}
+                    >
+                      Lectura
+                      <div
+                        className={`absolute -bottom-1 left-0 h-0.5 bg-sunflare-orange transition-all duration-300 ${
+                          isActiveLink("/reading")
+                            ? "w-full"
+                            : "w-0 group-hover:w-full"
+                        }`}
+                      ></div>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/grid"
+                      className={`font-truculenta text-lg transition-all duration-300 relative group ${
+                        isActiveLink("/grid")
+                          ? "text-sunflare-orange"
+                          : "text-moonlight-linen hover:text-cosmic-plum"
+                      }`}
+                    >
+                      Galería
+                      <div
+                        className={`absolute -bottom-1 left-0 h-0.5 bg-sunflare-orange transition-all duration-300 ${
+                          isActiveLink("/grid")
+                            ? "w-full"
+                            : "w-0 group-hover:w-full"
+                        }`}
+                      ></div>
+                    </Link>
+                  </li>
+                  {/*<li>
                   <Link 
                     to="/about" 
                     className={`font-truculenta text-sm transition-all duration-300 relative group ${
@@ -132,56 +148,56 @@ function App() {
                     }`}></div>
                   </Link>
                 </li>*/}
-              </ul>
+                </ul>
+              </div>
             </div>
-          </div>
-        </nav>
-        
-        {/* Menú móvil desplegable */}
-        {isOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 z-50 bg-galactic-purple/95 backdrop-blur-sm border-b border-cosmic-plum/50">
-            <ul className="container mx-auto px-4 py-4 space-y-2">
-              <li>
-                <Link 
-                  to="/" 
-                  onClick={handleLinkClick}
-                  className={`block w-full text-center font-truculenta text-xl py-3 px-4 rounded-lg transition-all duration-300 ${
-                    isActiveLink('/') 
-                      ? 'text-sunflare-orange bg-cosmic-plum/50' 
-                      : 'text-moonlight-linen hover:text-sunflare-orange hover:bg-cosmic-plum/30'
-                  }`}
-                >
-                  Inicio
-                </Link>
-              </li>
-              
-              <li>
-                <Link 
-                  to="/reading" 
-                  onClick={handleLinkClick}
-                  className={`block w-full text-center font-truculenta text-xl py-3 px-4 rounded-lg transition-all duration-300 ${
-                    isActiveLink('/reading') 
-                      ? 'text-sunflare-orange bg-cosmic-plum/50' 
-                      : 'text-moonlight-linen hover:text-sunflare-orange hover:bg-cosmic-plum/30'
-                  }`}
-                >
-                  Lectura
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/grid" 
-                  onClick={handleLinkClick}
-                  className={`block w-full text-center font-truculenta text-xl py-3 px-4 rounded-lg transition-all duration-300 ${
-                    isActiveLink('/grid') 
-                      ? 'text-sunflare-orange bg-cosmic-plum/50' 
-                      : 'text-moonlight-linen hover:text-sunflare-orange hover:bg-cosmic-plum/30'
-                  }`}
-                >
-                  Galería
-                </Link>
-              </li>
-              {/*<li>
+          </nav>
+
+          {/* Menú móvil desplegable */}
+          {isOpen && (
+            <div className="md:hidden absolute top-full left-0 right-0 z-50 bg-galactic-purple/95 backdrop-blur-sm border-b border-cosmic-plum/50">
+              <ul className="container mx-auto px-4 py-4 space-y-2">
+                <li>
+                  <Link
+                    to="/"
+                    onClick={handleLinkClick}
+                    className={`block w-full text-center font-truculenta text-xl py-3 px-4 rounded-lg transition-all duration-300 ${
+                      isActiveLink("/")
+                        ? "text-sunflare-orange bg-cosmic-plum/50"
+                        : "text-moonlight-linen hover:text-sunflare-orange hover:bg-cosmic-plum/30"
+                    }`}
+                  >
+                    Inicio
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to="/reading"
+                    onClick={handleLinkClick}
+                    className={`block w-full text-center font-truculenta text-xl py-3 px-4 rounded-lg transition-all duration-300 ${
+                      isActiveLink("/reading")
+                        ? "text-sunflare-orange bg-cosmic-plum/50"
+                        : "text-moonlight-linen hover:text-sunflare-orange hover:bg-cosmic-plum/30"
+                    }`}
+                  >
+                    Lectura
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/grid"
+                    onClick={handleLinkClick}
+                    className={`block w-full text-center font-truculenta text-xl py-3 px-4 rounded-lg transition-all duration-300 ${
+                      isActiveLink("/grid")
+                        ? "text-sunflare-orange bg-cosmic-plum/50"
+                        : "text-moonlight-linen hover:text-sunflare-orange hover:bg-cosmic-plum/30"
+                    }`}
+                  >
+                    Galería
+                  </Link>
+                </li>
+                {/*<li>
                 <Link 
                   to="/about" 
                   onClick={handleLinkClick}
@@ -194,10 +210,10 @@ function App() {
                   El Proyecto
                 </Link>
               </li>*/}
-            </ul>
-          </div>
-        )}
-      </header>
+              </ul>
+            </div>
+          )}
+        </header>
       )}
 
       {/* Contenido principal */}
@@ -219,17 +235,45 @@ function App() {
           <div className="container mx-auto px-4 py-6">
             <div className="text-center space-y-2">
               <p className="font-truculenta text-moonlight-linen text-sm">
-                © 2025 · Proyecto realizado por{" "}
-                <span className="text-sunflare-orange font-medium">OlgaRaRo</span>
+                © 2026 <span className="text-cosmic-plum">· Madame Web ·</span> Proyecto realizado por{" "}
+                <span className="text-sunflare-orange font-medium">
+                  OlgaRaRo
+                </span>
                 , pitonisa junior y programadora Fullstack
               </p>
-              <p className="font-truculenta text-moonlight-linen text-sm">
-                <span className="text-cosmic-plum">· Madame Web ·</span>
-              </p>
+
               <p className="font-truculenta text-radiant-apricot text-xs opacity-80">
-                Todos los contenidos tienen fines educativos y de entretenimiento.
+                Todos los contenidos tienen fines educativos y de
+                entretenimiento.
               </p>
-              
+
+              {/* Iconos sociales */}
+              <div className="flex justify-center gap-4 mt-4">
+                {/* LINKEDIN */}
+
+                <a
+                  href="https://www.linkedin.com/in/olga-ramirez-rodriguez/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-sunflare-orange/50 bg-galactic-purple/50 hover:bg-sunflare-orange/20 hover:border-sunflare-orange hover:scale-110 transition-all duration-300 shadow-[0_0_15px_rgba(255,155,174,0.15)] hover:shadow-[0_0_25px_rgba(255,155,174,0.4)]"
+                  aria-label="LinkedIn"
+                >
+                  <img src={linkedinIcon} alt="LinkedIn" className="w-6 h-6" />
+                </a>
+
+                {/* GITHUB */}
+
+                <a
+                  href="https://github.com/olgararo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-sunflare-orange/50 bg-galactic-purple/50 hover:bg-sunflare-orange/20 hover:border-sunflare-orange hover:scale-110 transition-all duration-300 shadow-[0_0_15px_rgba(255,111,60,0.15)] hover:shadow-[0_0_25px_rgba(255,111,60,0.4)]"
+                  aria-label="GitHub"
+                >
+                  <img src={githubIcon} alt="GitHub" className="w-6 h-6" />
+                </a>
+              </div>
+
               {/* Decoración mística */}
               <div className="flex justify-center items-center space-x-4 mt-4">
                 <div className="w-8 h-0.5 bg-gradient-to-r from-transparent to-cosmic-plum opacity-50"></div>
