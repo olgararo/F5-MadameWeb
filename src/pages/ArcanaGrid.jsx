@@ -6,7 +6,6 @@ import crystalBallAnimation from "../assets/img/ani_crystalBall.json";
 
 export default function ArcanaGrid() {
   const [allCards, setAllCards] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   // Estados para pagination
@@ -14,17 +13,13 @@ export default function ArcanaGrid() {
   const cardsPerPage = 8;
 
   useEffect(() => {
-    const fetchCards = async () => {
-      //manejo de errores con try y catch
+    const fetchCards = () => {
       try {
-        setLoading(true);
-        const data = await getAllCards();
+        const data = getAllCards(); 
         setAllCards(data);
       } catch (err) {
         setError("Error al cargar las cartas. Por favor, inténtalo de nuevo.");
         console.error("Error:", err);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -58,29 +53,6 @@ export default function ArcanaGrid() {
   // Calcular rango mostrado
   const startCard = totalCards === 0 ? 0 : startIndex + 1;
   const endCard = Math.min(endIndex, totalCards);
-
-  if (loading) {
-    return (
-      <main className="min-h-screen bg-nebula-black">
-        <div className="flex items-center justify-center py-20">
-          <div className="text-center">
-            <div className="mb-8 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              <Lottie
-                animationData={crystalBallAnimation}
-                loop={true}
-                className="w-full h-full"
-              />
-            </div>
-            {/* circulito animación de carga*/}
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sunflare-orange mx-auto mb-4"></div>
-            <p className="text-moonlight-linen font-truculenta">
-              Cargando cartas del tarot...
-            </p>
-          </div>
-        </div>
-      </main>
-    );
-  }
 
   if (error) {
     return (
@@ -128,13 +100,15 @@ export default function ArcanaGrid() {
             Explora las energías que mueven los hilos de tu existencia.{" "}
           </p>
           <p className="text-moonlight-linen/80 font-truculenta text-sm md:text-base px-4 mt-2">
-            Cada carta revela la historia de los guías espirituales que el siglo XXI se merece,
-            no los que necesita.{" "}
+            Cada carta revela la historia de los guías espirituales que el siglo
+            XXI se merece, no los que necesita.{" "}
           </p>
           <p className="text-moonlight-linen/80 font-truculenta text-sm md:text-base px-4">
-            Pasa y acepta tu destino, total, <span className="text-cosmic-plum font-medium">no tienes otra opción.</span>
+            Pasa y acepta tu destino, total,{" "}
+            <span className="text-cosmic-plum font-medium">
+              no tienes otra opción.
+            </span>
           </p>
-          
         </div>
       </div>
 
