@@ -1,17 +1,15 @@
 # 🔮 Madame Web - Frontend
 
-> *"El destino te espera... pero primero, consulta la documentación."*
+> *"El destino te espera... y esta vez está literalmente en tu navegador."*
 
-Aplicación web interactiva de tarot desarrollada en React que consume predicciones sarcásticas de una API REST propia. Combina los 22 Arcanos Mayores representados por personajes icónicos de la cultura pop con un sistema de lecturas personalizadas que son más honestas que tu historial de búsqueda.
+Aplicación web interactiva de tarot desarrollada en React que genera predicciones sarcásticas en el cliente. Combina los 22 Arcanos Mayores representados por personajes icónicos de la cultura pop con un sistema de lecturas personalizadas que son más honestas que tu historial de búsqueda.
 
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://madame-web.vercel.app)
 [![React](https://img.shields.io/badge/React-19.2.3-blue?logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-7.1.0-646CFF?logo=vite)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1.12-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
 
-**🌐 App en vivo:** [https://madame-web.vercel.app](https://madame-web.vercel.app)  
-**🔗 API Backend:** [https://madame-web-api.onrender.com](https://madame-web-api.onrender.com)  
-**📚 Repo Backend:** [madame-web-api](https://github.com/olgararo/madame-web-api)
+**🌐 App en vivo:** [https://madame-web.vercel.app](https://madame-web.vercel.app)
 
 ---
 
@@ -20,11 +18,12 @@ Aplicación web interactiva de tarot desarrollada en React que consume prediccio
 - 🃏 **22 Arcanos Mayores** representados por personajes de la cultura pop
 - 🎨 **Diseño místico-moderno** con animaciones fluidas y efectos de partículas
 - 🔮 **Lectura de 3 cartas** (Pasado, Presente, Futuro) con predicciones dinámicas
+- ⚡ **100% cliente-side** - Sin dependencias de backend, todo funciona offline después de cargar
 - ✍️ **Efecto typewriter** para las predicciones (porque el drama es importante)
 - 🎭 **Interpretaciones duales**: significado tradicional + versión realista-sarcástica
 - 📱 **Responsive design** adaptado a móvil, tablet y desktop
 - 🌈 **Paleta de colores cósmica** con temas de nebulosas y estrellas
-- ⚡ **Carga optimizada** con lazy loading y cache del navegador
+- 🚀 **Instantáneo** - Sin cold starts ni tiempos de espera
 - 🎪 **Animaciones Lottie** para estados de carga
 
 ---
@@ -110,8 +109,12 @@ madame-web/
 │   │   ├── ArcanaReading.jsx           # Lectura de 3 cartas
 │   │   └── About.jsx                   # Info del proyecto
 │   │
-│   ├── services/
-│   │   └── tarotService.js             # Cliente API REST
+│   ├── data/                           # ← NUEVO: Datos locales
+│   │   ├── arcana.json                 # 22 Arcanos Mayores
+│   │   └── predictions.json            # Fragmentos de predicciones
+│   │
+│   ├── services/                       # ← MODIFICADO
+│   │   └── predictionService.js        # Lógica de generación de predicciones
 │   │
 │   ├── router/
 │   │   └── Router.jsx                  # Configuración de rutas
@@ -162,30 +165,61 @@ La app usa un tema cósmico-místico con colores definidos en `src/index.css`:
 
 ---
 
-## 🔗 Integración con la API
+## 🔮 Sistema de Predicciones
 
-El frontend consume 3 endpoints de la API REST:
+### Arquitectura Cliente-Side
+
+La aplicación genera predicciones completamente en el navegador sin necesidad de backend:
 ```javascript
-// src/services/tarotService.js
+// src/services/predictionService.js
 
-// 1. Obtener todos los arcanos
-GET /api/arcanas
-// → Respuesta: { success: true, data: [...22 arcanos], count: 22 }
+class PredictionService {
+  // 1. Obtener todos los arcanos (desde JSON local)
+  getAllCards() {
+    return arcanaData; // Datos embebidos en el bundle
+  }
 
-// 2. Obtener arcano específico
-GET /api/arcanas/:id
-// → Respuesta: { success: true, data: {...arcano} }
+  // 2. Obtener arcano específico
+  getCardById(id) {
+    return arcanaData.find(card => card.id === id);
+  }
 
-// 3. Generar predicción
-GET /api/prediction?card1=1&card2=5&card3=12
-// → Respuesta: { success: true, data: { prediction, cards_used, dominant_energy } }
+  // 3. Generar predicción (100% en cliente)
+  getPrediction(card1Id, card2Id, card3Id) {
+    // Algoritmo de ensamblaje dinámico:
+    // - Calcula energía dominante
+    // - Selecciona fragmentos de texto según condiciones
+    // - Ensambla predicción única con puntuación natural
+    return { prediction, cards_used, dominant_energy };
+  }
+}
 ```
 
-**Configuración de entorno:**
-```javascript
-const API_BASE_URL = import.meta.env.DEV
-  ? "http://localhost:3001/api"           // Desarrollo
-  : "https://madame-web-api.onrender.com/api"  // Producción
+### Datos Locales
+
+**`src/data/arcana.json`** (3.5KB)
+- 22 Arcanos Mayores
+- Cada carta incluye: nombre, número, energía, temas, descripción, interpretación irónica, imagen
+
+**`src/data/predictions.json`** (12KB)
+- 90+ fragmentos de texto categorizados
+- Tipos: introducción, desarrollo (x3), transición (x2), cierre
+- Condiciones dinámicas: energía dominante, temas, posición de carta
+
+### Algoritmo de Generación
+```
+1. Usuario selecciona 3 cartas → [Pasado, Presente, Futuro]
+2. Sistema calcula energía dominante (positiva/negativa/neutra)
+3. Selecciona fragmentos matching:
+   - Introducción (según energía)
+   - Desarrollo carta 1 (según temas + posición)
+   - Transición 1 (opcional: según combinación de energías)
+   - Desarrollo carta 2
+   - Transición 2
+   - Desarrollo carta 3
+   - Cierre (aleatorio)
+4. Ensambla texto con puntuación natural
+5. Renderiza con efecto typewriter (20ms/carácter)
 ```
 
 ---
@@ -203,7 +237,7 @@ O
 ArcanaReading (Lectura 3 cartas)
     ↓
     1. Selecciona 3 cartas del mazo
-    2. Revelar → API genera predicción
+    2. Revelar → Genera predicción instantánea
     3. Efecto typewriter muestra resultado
     4. Click en carta revelada → Modal con detalles
 ```
@@ -218,7 +252,7 @@ ArcanaReading (Lectura 3 cartas)
 - 📜 **Typewriter effect**: Las predicciones se escriben letra por letra
 - 💫 **Partículas flotantes**: Elementos decorativos con `animate-pulse`
 - 🌊 **Gradientes dinámicos**: Transiciones suaves de color
-- 🔄 **Loading states**: Animación Lottie de bola de cristal
+- 🔄 **Loading states**: Animación Lottie de bola de cristal (solo cosmético)
 - 🎪 **Hover effects**: Escalado, sombras y brillos
 - 📖 **Smooth scroll**: Navegación fluida entre secciones
 
@@ -256,8 +290,9 @@ npm i -g vercel
 # 2. Conectar con GitHub
 # → Vercel hace auto-deploy en cada push a main
 
-# 3. Variables de entorno (si las necesitas)
-# → En Vercel Dashboard → Settings → Environment Variables
+# 3. Build automático
+# → Vite bundlea todo (código + JSON)
+# → Sin variables de entorno necesarias
 ```
 
 **URL de producción:** [https://madame-web.vercel.app](https://madame-web.vercel.app)
@@ -268,11 +303,13 @@ npm i -g vercel
 
 ### Performance
 
+- ✅ **Bundle único** - Todos los datos embebidos (~16KB JSON total)
+- ✅ **Zero latencia** - Sin llamadas HTTP, todo instantáneo
 - ✅ **Lazy loading** de imágenes con formato WebP
 - ✅ **Code splitting** automático con Vite
 - ✅ **Compresión Brotli** en Vercel
-- ✅ **Cache de API** en cliente (1 llamada para 22 arcanos)
 - ✅ **Minificación** CSS y JS en producción
+- ✅ **Funciona offline** - PWA-ready
 
 ### SEO y Accesibilidad
 
@@ -315,22 +352,18 @@ useEffect(() => {
 
 ## 📝 Roadmap
 
-- [ ] Modo oscuro/claro toggle
-- [ ] Guardar lecturas favoritas (LocalStorage)
+- [ ] Guardar lecturas favoritas (LocalStorage) ← ¡Ahora posible sin backend!
 - [ ] Compartir predicción en redes sociales
 - [ ] Audio místico de fondo (opcional)
-- [ ] Versión en inglés (i18n)
-- [ ] PWA con service worker
-- [ ] Sistema de logros/badges
-- [ ] Escribir un About Me explicando la historia detrás del proyecto.
-- [ ] Animación vectorial con GSAP de una telaraña creciendo por toda la web.
+- [ ] PWA con service worker ← Funciona offline nativo
+- [ ] Escribir un About Me explicando la historia detrás del proyecto
+- [ ] Animación vectorial con GSAP de una telaraña creciendo por toda la web
 
 ---
 
 ## 🐛 Problemas Conocidos
 
 - En Safari móvil, las animaciones CSS pueden tener menos frames
-- El efecto typewriter puede desfasarse en conexiones lentas
 - Las imágenes de Cloudinary pueden tardar en la primera carga
 
 ---
@@ -345,7 +378,6 @@ useEffect(() => {
 4. Push a la rama (`git push origin feature/digievolucion`)
 5. Abre un Pull Request
 
-
 ---
 
 ## 🙏 Créditos
@@ -356,6 +388,24 @@ useEffect(() => {
 - **Imágenes de arcanos:** Generadas con Google AI Studio (Nano Banana)
 - **Hosting:** Vercel
 - **CDN de imágenes:** Cloudinary
+
+---
+
+## 📜 Historia del Proyecto
+
+Este proyecto comenzó como una aplicación full-stack con backend en Node.js/Express desplegado en Render. Sin embargo, dado que:
+
+- No requería base de datos
+- Solo ensamblaba texto de datos estáticos
+- Render free tier tenía cold starts de 60 segundos
+
+**Decidí migrar toda la lógica al frontend**, eliminando dependencias externas y ganando:
+- ⚡ **Velocidad**: De 60s a 0s de espera
+- 💰 **Costos**: $0 en infraestructura
+- 🔒 **Confiabilidad**: Sin puntos de fallo externos
+- 🌐 **Offline-first**: Funciona sin conexión
+
+Lección aprendida: **No siempre necesitas un backend.** A veces, la mejor arquitectura es la más simple.
 
 ---
 
@@ -371,7 +421,8 @@ Pitonisa junior y desarrolladora Full Stack
 
 ## 🔗 Enlaces Relacionados
 
-- 📚 [Documentación de la API](https://github.com/olgararo/madame-web-api)
+- 🗂️ **Repo del backend original (deprecado):** [madame-web-api](https://github.com/olgararo/madame-web-api)  
+  *Nota: Este backend ya no es necesario. Se mantiene por razones educativas.*
 
 ---
 
@@ -379,8 +430,9 @@ Pitonisa junior y desarrolladora Full Stack
 
 **✨ Que el cosmos te acompañe ✨**
 
-*Hecho con sudor, lágrimas y un poco de IA*
+*Hecho con sudor, lágrimas y un poco de refactoring inteligente aconsejado por unos seniors muy majos 
+(gracias Astrojuanlu y Humitos)*
 
-[![Star en GitHub](https://img.shields.io/github/stars/olgararo/madame-web?style=social)](https://github.com/olgararo/F5-MadameWeb)
+[![Star en GitHub](https://img.shields.io/github/stars/olgararo/madame-web?style=social)](https://github.com/olgararo/madame-web)
 
 </div>

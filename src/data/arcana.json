@@ -1,0 +1,359 @@
+[
+  {
+    "id": 1,
+    "name": "El Loco",
+    "arcana": "mayor",
+    "number": 0,
+    "energy": "positiva",
+    "themes": ["nuevos comienzos", "riesgo", "espontaneidad", "libertad"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056073/El_Loco_adeopt.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de El Loco: Jack Sparrow"
+    },
+    "description": "El viaje del Loco hacia el Mundo comienza en el número 0, un punto incierto donde todo es posible y se requiere una gran dosis de fe. Esta carta representa a quienes se aventuran en territorios inexplorados y llenos de misterio. Es la manifestación del impulso de lanzarse al abismo sin garantías.",
+    "ironicInterpretation": "Lanzarse al abismo sin garantías suena muy poético, hasta que te das cuenta de que el suelo está duro. Es esa fe ciega que te hace creer que un barco que se hunde es en realidad un vehículo de exploración. Spoiler: si no tienes ron, el viaje será mucho más largo."
+  },
+  {
+    "id": 2,
+    "name": "El Mago",
+    "arcana": "mayor",
+    "number": "I",
+    "energy": "positiva",
+    "themes": ["poder", "acción", "creatividad", "manifestación"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056072/El_Mago_bpksyl.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de El Mago: Frieren"
+    },
+    "description": "La carta número I corresponde al Mago, símbolo de nuestro poder interior y de aquellas habilidades que aún no han salido plenamente a la luz. El Mago representa a quien, con destreza y voluntad, puede alcanzar cualquier objetivo. Es una carta que habla de iniciativa, claridad mental y decisión, conectando tanto con lo tangible como con lo intangible, especialmente con la percepción y la visión interior.",
+    "ironicInterpretation": "Tienes un poder interior inmenso, pero probablemente lo uses para aprender hechizos inútiles como 'limpiar el moho de las estatuas' o 'dormir una siesta de mil años'. Tener todas las herramientas no sirve de nada si tu mayor ambición es coleccionar grimorios que nadie más puede leer."
+  },
+  {
+    "id": 3,
+    "name": "La Sacerdotisa",
+    "arcana": "mayor",
+    "number": "II",
+    "energy": "neutra",
+    "themes": ["intuición", "misterio", "subconsciente", "secretos"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056075/La_Sacerdotisa_ptoplp.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de La Sacerdotisa: Kikyo de Inuyasha"
+    },
+    "description": "La carta número II nos invita a abrirnos a la receptividad y a conectar con nuestro universo interno. Representa el momento del encuentro profundo con uno mismo y con aquello que nos rodea, ya sea otra persona o un espacio simbólico, casi onírico, donde la intuición toma protagonismo y guía el camino.",
+    "ironicInterpretation": "La conexión con tu universo interno está muy bien, pero ten cuidado: a veces ese 'encuentro profundo' es solo un bucle de rencor de hace cincuenta años. Vivir entre lo onírico y lo real es agotador, especialmente cuando tu cuerpo está hecho de barro y tu alma está pegada con celo."
+  },
+  {
+    "id": 4,
+    "name": "La Emperatriz",
+    "arcana": "mayor",
+    "number": "III",
+    "energy": "positiva",
+    "themes": ["abundancia", "creación", "naturaleza", "confort"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056072/La_Emperatriz_cejbgs.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de La Emperatriz: Daenerys Targaryen"
+    },
+    "description": "La carta número III nos conecta con la energía de la creación en su forma más esencial. La Emperatriz tiene el poder de transformar lo que toca, impregnándolo de vitalidad y dinamismo. Representa la fertilidad, la abundancia y la acción constante. Es el impulso creativo nacido del amor, donde el caos se convierte en vida.",
+    "ironicInterpretation": "Transformar el caos en vida es un don maravilloso, hasta que esa 'vida' incluye tres lagartos gigantes con mal aliento que queman ciudades. Recuerda que la abundancia y el poder suelen venir acompañados de un impulso irrefrenable de liberar dragones sobre tus problemas."
+  },
+  {
+    "id": 5,
+    "name": "El Emperador",
+    "arcana": "mayor",
+    "number": "IV",
+    "energy": "neutra",
+    "themes": ["autoridad", "control", "estructura", "disciplina"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056071/El_Emperador_ovi6kt.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de El Emperador: Kuzco del Emperador y sus locuras"
+    },
+    "description": "La carta número IV representa al Emperador, emblema de estructura, autoridad y seguridad. El número cuatro evoca la solidez de un hogar, con sus muros que contienen y protegen. Así como abril, el cuarto mes, marca el momento en que la energía combativa de la vida hace florecer la tierra, el Emperador canaliza la fuerza hacia el orden y la permanencia, guiando el crecimiento con determinación y propósito.",
+    "ironicInterpretation": "Estructura y autoridad son palabras elegantes para decir que eres un egocéntrico de cuidado. Está bien buscar el orden, pero si intentas construir un parque temático sobre la casa de un campesino, no te sorprendas si acabas convertido en una llama con crisis de identidad."
+  },
+  {
+    "id": 6,
+    "name": "El Sumo Sacerdote",
+    "arcana": "mayor",
+    "number": "V",
+    "energy": "neutra",
+    "themes": ["tradición", "normas", "conformidad", "creencias"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056072/El_Sumo_Sacerdote_ooofbt.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de El Sumo Sacerdote: Charles Xavier de X-Men"
+    },
+    "description": "La carta del Sumo Sacerdote encarna los principios del orden, las normas y los vínculos sociales. Actúa como figura de guía espiritual, portador de la sabiduría ancestral y de los sistemas de creencias que dan forma a nuestra comprensión del mundo. También representa el puente hacia lo sagrado, recordándonos el valor de la ética, la coherencia y la integridad en nuestro camino.",
+    "ironicInterpretation": "Ser una guía espiritual es mucho más fácil cuando puedes leer la mente de todos tus alumnos. El valor de la ética es incuestionable, siempre y cuando no borres la memoria de las personas cada vez que no encajan en tu 'visión del mundo'."
+  },
+  {
+    "id": 7,
+    "name": "Los Amantes",
+    "arcana": "mayor",
+    "number": "VI",
+    "energy": "positiva",
+    "themes": ["amor", "unión", "elección", "relaciones"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056078/Los_Amantes_qcrbht.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de Los Amantes: Gómez y Morticia Addams"
+    },
+    "description": "La carta de los Amantes representa el amor en su dimensión activa: una elección consciente, un compromiso que se manifiesta en el mundo. Simboliza la unión de lo femenino y lo masculino, la fusión de polaridades que da origen a la plenitud. De este encuentro nacen la compasión, la ternura y, por supuesto, el amor como fuerza transformadora.",
+    "ironicInterpretation": "Nada dice 'elección consciente' como un matrimonio donde la tortura es el lenguaje del amor y pasear por un cementerio es una cita romántica. La fusión de polaridades funciona de maravilla mientras mantengas a los parientes normales lejos de la mansión."
+  },
+  {
+    "id": 8,
+    "name": "El Carro",
+    "arcana": "mayor",
+    "number": "VII",
+    "energy": "positiva",
+    "themes": ["victoria", "ambición", "determinación", "control"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056071/El_Carro_fay7o8.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de El Carro: Rick y Morty en su nave espacial"
+    },
+    "description": "La carta del Carro retoma la energía del Mago y la convierte en impulso firme, guiado por la voluntad, la determinación y la confianza en uno mismo. Representa un avance que nace de una necesidad profunda: el fuego interior que impulsa, supera barreras y abre rutas desconocidas. Es una fuerza que no se detiene, movida por el propósito y el coraje.",
+    "ironicInterpretation": "Abrir rutas desconocidas suena muy aventurero, hasta que te das cuenta de que la 'fuerza que no se detiene' es un motor impulsado por una civilización microscópica esclavizada. El avance es firme, sí, pero es difícil mantener el control cuando tu compañero de viaje tiene una crisis de pánico constante y tú solo buscas una salsa que ya no existe."
+  },
+  {
+    "id": 9,
+    "name": "La Fuerza",
+    "arcana": "mayor",
+    "number": "VIII",
+    "energy": "positiva",
+    "themes": ["fuerza interior", "coraje", "paciencia", "compasión"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056073/La_Fuerza_usgngm.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de La Fuerza: Tarzán"
+    },
+    "description": "La carta de la Fuerza no alude a la violencia ni al dominio físico, sino a la armonía con nuestra esencia más profunda. Habla de vivir con autenticidad, de habitar el mundo desde el ser, no desde la lucha. Representa una energía constante y serena, una presencia firme que actúa sin imponerse. La Fuerza nos invita a responder con amor en medio de un entorno marcado por el miedo y la hostilidad, evocando la pureza instintiva y el espíritu libre de los animales.",
+    "ironicInterpretation": "Responder con amor y pureza instintiva es mucho más fácil cuando tienes unos abdominales de acero y hablas fluidamente el idioma de los gorilas. La armonía con la esencia profunda está genial, siempre que no te olvides de cómo se usa un tenedor cuando vuelvas a la civilización."
+  },
+  {
+    "id": 10,
+    "name": "El Ermitaño",
+    "arcana": "mayor",
+    "number": "IX",
+    "energy": "neutra",
+    "themes": ["introspección", "soledad", "sabiduría", "guía interior"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766103831/El_Ermitano_nx85hg.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de El Ermitaño: Maomao de The Apothecary Diaries"
+    },
+    "description": "La carta del Ermitaño simboliza una soledad fértil y elegida, un espacio de introspección donde la sabiduría nace del silencio y del encuentro con uno mismo. Su lámpara, la primera luz visible en los arcanos mayores sostenida por una figura humana, representa la guía interior que ilumina el camino del autoconocimiento. Es una invitación a observar, reflexionar y crecer desde dentro, lejos del ruido del mundo.",
+    "ironicInterpretation": "El autoconocimiento es fundamental, pero seamos realistas: prefieres la introspección porque los seres humanos son variables biológicas demasiado ruidosas y complicadas. La soledad es fértil siempre que haya plantas medicinales cerca; al fin y al cabo, un hongo venenoso es mucho más predecible y honesto que cualquier 'rana' de palacio."
+  },
+  {
+    "id": 11,
+    "name": "La Rueda de la Fortuna",
+    "arcana": "mayor",
+    "number": "X",
+    "energy": "neutra",
+    "themes": ["cambio", "ciclos", "suerte", "destino"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056075/La_Rueda_de_la_Fortuna_t3hqfy.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de La Rueda de la Fortuna: Harvey Dent/ Dos-Caras, villano de Batman"
+    },
+    "description": "Esta carta simboliza la transformación, el destino y el compromiso personal. Nos recuerda que ciertos acontecimientos ocurren porque deben suceder, pero también nos impulsa a asumir el control de nuestra vida, tomar decisiones conscientes y ser responsables de nuestras elecciones para que el cambio se manifieste.",
+    "ironicInterpretation": "Asumir el control de tu vida es una opción respetable, pero lanzar una moneda al aire es mucho más rápido y te ahorra la terapia. Recuerda que el destino es cíclico: hoy estás arriba impartiendo justicia y mañana tienes la mitad de la cara quemada decidiendo el futuro en un callejón."
+  },
+  {
+    "id": 12,
+    "name": "La Justicia",
+    "arcana": "mayor",
+    "number": "XI",
+    "energy": "neutra",
+    "themes": ["equilibrio", "verdad", "consecuencias", "ley"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056074/La_Justicia_w7grmm.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de La Justicia: Henry Cavill como Superman"
+    },
+    "description": "La carta número XI representa la ley del karma, la relación entre causa y efecto. Su figura, directa y enigmática, nos enfrenta con la verdad sin rodeos. A través de esta carta aprendemos a ser objetivos y a cosechar las consecuencias de nuestras acciones. Además, la Justicia encarna ideales elevados y nos exhorta a defender diariamente un mundo más justo, libre e inclusivo, apoyando a quienes sufren opresión.",
+    "ironicInterpretation": "Defender la verdad y la justicia es una tarea encomiable, sobre todo si tienes super fuerza y puedes doblar acero con las manos. Lástima que el karma no siempre use capa ni tenga una debilidad tan ridícula como las piedrecitas verdes."
+  },
+  {
+    "id": 13,
+    "name": "El Colgado",
+    "arcana": "mayor",
+    "number": "XII",
+    "energy": "neutra",
+    "themes": ["sacrificio", "espera", "rendición", "nueva perspectiva"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056071/El_Colgado_d0oo99.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de El Colgado: Spider-Man"
+    },
+    "description": "En la carta del Colgado aparece una figura suspendida boca abajo, que no muestra señales de molestia. Esto simboliza a quienes adoptan una visión distinta, a la minoría que observa desde un ángulo diferente. Representa la habilidad para hallar soluciones y fuerzas en situaciones que otros consideran difíciles o incómodas. Es un tiempo de espera y pausa, un estado de transición hasta que la verdad se haga evidente con el paso del tiempo",
+    "ironicInterpretation": "Adoptar una visión distinta está muy bien, pero estar suspendido boca abajo es el estado ideal para que se te caigan las llaves del bolsillo o para darte cuenta de que tu tío tenía razón sobre lo del gran poder y la gran responsabilidad."
+  },
+  {
+    "id": 14,
+    "name": "La Muerte",
+    "arcana": "mayor",
+    "number": "XIII",
+    "energy": "negativa",
+    "themes": [
+      "transformación",
+      "fin de ciclo",
+      "cambio inevitable",
+      "pérdida"
+    ],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056075/La_Muerte_mzftjh.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de La Muerte: Ryuk de Death Note"
+    },
+    "description": "El arcano número XIII corresponde a la Muerte, pero no simboliza un final absoluto. Por eso se ubica en el centro de los arcanos, marcando un momento crucial de cambio. La Muerte representa la transformación y la transición de una etapa a otra. Para poder avanzar, es necesario soltar aquello que frena nuestro crecimiento. Esta carta nos anima a dejar atrás lo que ha cumplido su ciclo y permitir que algo nuevo surja.",
+    "ironicInterpretation": "Soltar lo que frena tu crecimiento a veces requiere escribir un par de nombres en una libreta negra mientras comes manzanas. La transformación es inevitable, pero asegúrate de que el 'algo nuevo' que surja no sea un dios de la muerte aburrido siguiéndote a todas partes."
+  },
+  {
+    "id": 15,
+    "name": "La Templanza",
+    "arcana": "mayor",
+    "number": "XIV",
+    "energy": "positiva",
+    "themes": ["equilibrio", "paciencia", "moderación", "armonía"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056076/La_Templanza_1_jcpuuq.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de La Templanza: Avatar Aang"
+    },
+    "description": "La Templanza representa al alquimista que domina el arte de combinar con precisión los elementos necesarios para crear algo que trasciende sus partes individuales. Antes de enfrentar el caos y la intensidad sensorial que trae la carta XV, El Diablo, se atraviesa un estado de equilibrio simbolizado por la Templanza. Este es un espacio logrado gracias a la reflexión y la conciliación de fuerzas opuestas.",
+    "ironicInterpretation": "Conciliar fuerzas opuestas y dominar los elementos requiere una madurez espiritual que no todo el mundo alcanza. Es una pena que después de pasar cien años meditando en un bloque de hielo para salvar la civilización, tu gran equilibrio interior se desmorone en cuanto ves a un animal extraño que podrías usar como transporte. La armonía universal es importante, pero montar en un bisonte volador es la verdadera prioridad."
+  },
+  {
+    "id": 16,
+    "name": "El Diablo",
+    "arcana": "mayor",
+    "number": "XV",
+    "energy": "negativa",
+    "themes": ["adicción", "materialismo", "limitaciones", "tentación"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056071/El_Diablo_xwinsq.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de El Diablo: Walter White en Breaking Bad"
+    },
+    "description": "La carta del Diablo aborda temas de opresión y libertad de elección. Nos confronta con nuestros temores y nos enseña que la única forma de vencerlos es nombrarlos, mirarlos de frente y aceptarlos. En el tarot, el Diablo está vinculado al libre albedrío, especialmente en los momentos en que parece más complicado ejercerlo. Representa la energía creativa, la fuerza erótica y dionisíaca que desata el caos y, a la vez, la libertad. Su mensaje sugiere que para salir del ciclo atrapante, solo hace falta romperlo.",
+    "ironicInterpretation": "Dice la carta que para salir del ciclo solo hace falta romperlo, pero tú prefieres ampliarlo hasta que ocupe todo Nuevo México. Representas la libertad de elección en su estado más tóxico: la libertad de convertirte en el villano de tu propia historia mientras insistes en que eres la víctima de las circunstancias. Romper las cadenas es sencillo; lo difícil es admitir que te gustan tanto que te las has diseñado a medida y de color azul cristalino."
+  },
+  {
+    "id": 17,
+    "name": "La Torre",
+    "arcana": "mayor",
+    "number": "XVI",
+    "energy": "negativa",
+    "themes": ["caos", "revelación", "crisis", "cambio súbito"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056077/La_Torre_ia2ckn.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de La Torre: La Tardis de Doctor Who"
+    },
+    "description": "La Torre simboliza la rebelión y la interrupción abrupta de lo conocido. Representa un evento inesperado, poderoso tanto para destruir como para renovar. Es una revolución que transforma todo, pues nada volverá a ser igual. Frente al vacío, podemos resistir y caer o rendirnos y aprender a volar. Esta carta nos recuerda que al desaparecer las ataduras, las fronteras y los planes establecidos, el cielo se abre y el horizonte se ensancha, presentándonos un desafío que podemos elegir enfrentar o evitar.",
+    "ironicInterpretation": "Nada como un evento inesperado que destruye tu realidad, como una caja azul aterrizando en tu jardín. El cielo se abre y de repente estás corriendo por el espacio-tiempo porque tu vida anterior ha saltado por los aires. Literalmente."
+  },
+  {
+    "id": 18,
+    "name": "La Estrella",
+    "arcana": "mayor",
+    "number": "XVII",
+    "energy": "positiva",
+    "themes": ["esperanza", "fe", "inspiración", "sanación"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056073/La_Estrella_sfekvc.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de La Estrella: Beyoncé"
+    },
+    "description": "La Estrella aparece después de tiempos complicados, anunciando una renovación de energías. Lo más duro ya quedó atrás y podemos volver a mirar al cielo con confianza. Esta carta representa la esperanza, como esas estrellas fugaces que reflejan nuestros deseos más profundos, los cuales se transforman en esperanza y, finalmente, en alegría al cumplirse. La Estrella nos orienta hacia la sanación y nos recuerda que de la nada surge la plenitud.",
+    "ironicInterpretation": "Dice la carta que de la nada surge la plenitud, lo cual es precioso hasta que intentas compararte con alguien que se despierta siendo 'flawless' y factura millones mientras duerme. Tu renovación de energías está muy bien, pero hasta que no seas capaz de parar el tiempo con un chasquido, eres una estrella de bajo consumo."
+  },
+  {
+    "id": 19,
+    "name": "La Luna",
+    "arcana": "mayor",
+    "number": "XVIII",
+    "energy": "neutra",
+    "themes": ["ilusión", "miedo", "ansiedad", "subconsciente"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056074/La_Luna_rlgt8a.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de La Luna: Mizu de Blue Eye Samurai"
+    },
+    "description": "Bajo el resplandor de la luna se despierta el espíritu libre del bosque, acompañado por una mirada cargada de intuición. La luz lunar distorsiona la realidad, mostrando un reflejo fantástico en lugar de la verdad directa. La carta de la Luna simboliza la incertidumbre más que las respuestas, representando la magia en su estado más puro, susceptible de múltiples interpretaciones. Es el mundo interior, lo cambiante, lo imaginario y lo oculto. La Luna surge en un espacio donde lo interno y lo externo se entrelazan, un lugar capaz de crear nuevos universos.",
+    "ironicInterpretation": "La luz lunar distorsiona tanto la realidad que puedes llegar a ocultar tu identidad bajo capas de venganza y acero. Es un mundo de secretos donde lo que ves no es lo que es, y donde la intuición es lo único que te impide morir a manos de un pasado que te persigue en la oscuridad."
+  },
+  {
+    "id": 20,
+    "name": "El Sol",
+    "arcana": "mayor",
+    "number": "XIX",
+    "energy": "positiva",
+    "themes": ["éxito", "alegría", "claridad", "vitalidad"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056072/El_Sol_shg9kj.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de El Sol: Leslie Knope de Parks and Recreation"
+    },
+    "description": "El Sol simboliza la alegría, el triunfo y la gratitud. Esta carta brilla con intensidad y emerge al concluir un ciclo de cambio y evolución. Bajo su luz, todo se revela con claridad. Nos da la fuerza para aceptar y expresar nuestra verdadera esencia. Nos recuerda que la felicidad se encuentra en las cosas sencillas y en el presente. Al igual que el sol primaveral que calienta y da vida, esta carta representa la energía vital y la apertura hacia el mundo. El Sol es la alegría que se ha logrado con esfuerzo.",
+    "ironicInterpretation": "La alegría y el triunfo se logran con esfuerzo, optimismo desmedido y unos 400 esquemas organizativos. Todo se revela con claridad, especialmente si esa claridad viene acompañada de gofres y un entusiasmo tan intenso que resulta físicamente doloroso para los que te rodean."
+  },
+  {
+    "id": 21,
+    "name": "El Juicio",
+    "arcana": "mayor",
+    "number": "XX",
+    "energy": "neutra",
+    "themes": ["evaluación", "despertar", "redención", "consecuencias"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056071/El_Juicio_ifyzza.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de El Juicio: V de Vendetta"
+    },
+    "description": "La carta del Juicio aparece casi al final del viaje que comenzó con el Loco y culmina con el Mundo. Es una carta clave que marca la conclusión del proceso evolutivo que representan los arcanos mayores. Nos invita a tomar una acción definitiva: responder a nuestra verdadera vocación. El Juicio simboliza esa llamada profunda, la misión que nos guía en la vida. Antes de llegar a esta etapa, debimos mirar dentro de nosotros mismos, descubrir nuestra esencia auténtica y el mensaje que queremos compartir con el mundo. Cumplido este paso con sinceridad, alcanzaremos la verdadera libertad.",
+    "ironicInterpretation": "Tomar una acción definitiva y seguir tu misión es el camino a la redención, pero en ocasiones responder a tu verdadera vocación requiere una máscara, una capa y un plan maestro para volar un parlamento. La conclusión de tu proceso evolutivo es darte cuenta de que eres más una idea que una persona. Es una epifanía preciosa, aunque un poco incómoda de explicar en una entrevista de trabajo. "
+  },
+  {
+    "id": 22,
+    "name": "El Mundo",
+    "arcana": "mayor",
+    "number": "XXI",
+    "energy": "positiva",
+    "themes": ["éxito", "realización", "integración", "fin de ciclo"],
+    "arcanaImage": {
+      "imageUrl": "https://res.cloudinary.com/dwatee5z1/image/upload/v1766056072/El_Mundo_ewq7qo.png",
+      "author": "Generada por OlgaRaRo vía Google AI Studio (Nano Banana)",
+      "licenseUrl": "",
+      "altText": "Representación de El Mundo: Doctor Manhattan de Watchmen"
+    },
+    "description": "La carta final de los arcanos mayores, el Mundo, representa tanto un cierre como un nuevo comienzo. Marca la culminación de un ciclo y la realización del destino que nos propusimos alcanzar. Es un punto de partida desde cero, que nos invita a renovarnos y explorar nuevamente. El Mundo nos impulsa a salir de nuestra zona de confort antes de que se convierta en una prisión dorada. Aquí llegamos y desde aquí partimos, siguiendo el ritmo cíclico de los arcanos. Esta carta está profundamente ligada al viaje interior y al descubrimiento constante.",
+    "ironicInterpretation": "Llegar a la meta y descubrir que el tiempo es una construcción circular es el premio máximo a tu evolución. Has alcanzado tal nivel de plenitud que la política, el amor y la supervivencia humana te parecen tan interesantes como una colonia de hormigas en un hormiguero que estás a punto de pisar. Disfruta de tu libertad absoluta; ser un dios es la mejor excusa para no tener que dar explicaciones por pasear desnudo por el cosmos."
+  }
+]

@@ -1,45 +1,27 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getCardById } from "../services/tarotService";
+import { getCardById } from "../services/predictionService";
 
 export default function ArcanaDetail() {
   const { id } = useParams();
   const [card, setCard] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchCard = async () => {
-      try {
-        setLoading(true);
-        const cardData = await getCardById(id);
-        setCard(cardData);
-      } catch (err) {
-        setError("Error al cargar los detalles de la carta");
-        console.error("Error:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+    const fetchCard = () => {
+  try {
+    const cardData = getCardById(Number(id));
+    setCard(cardData);
+  } catch (err) {
+    setError("Error al cargar los detalles de la carta");
+    console.error("Error:", err);
+  }
+};
 
     if (id) {
       fetchCard();
     }
   }, [id]);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-nebula-black flex items-center justify-center">
-        <div className="text-center">
-          {/* circulito animación de carga*/}
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sunflare-orange mx-auto mb-4"></div>
-          <p className="text-moonlight-linen font-truculenta">
-            Cargando carta...
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   if (error) {
     return (
