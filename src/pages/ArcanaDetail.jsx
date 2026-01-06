@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getCardById } from "../services/tarotService";
+import { getCardById } from "../services/predictionService";
 
 export default function ArcanaDetail() {
   const { id } = useParams();

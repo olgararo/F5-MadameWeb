@@ -111,7 +111,7 @@ madame-web/
 │   │   └── About.jsx                   # Info del proyecto
 │   │
 │   ├── services/
-│   │   └── tarotService.js             # Cliente API REST
+│   │   └── predictionService.js             # Cliente API REST
 │   │
 │   ├── router/
 │   │   └── Router.jsx                  # Configuración de rutas

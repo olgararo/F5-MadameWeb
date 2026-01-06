@@ -4,22 +4,17 @@ import predictionsData from '../data/predictions.json';
 class PredictionService {
   /**
    * Get an arcana by its ID
+   * @private
    */
-  getArcanaById(id) {
+  _getArcanaById(id) {
     return arcanaData.find((arcana) => arcana.id === id) || null;
   }
 
   /**
-   * Get all arcanas
-   */
-  getAllArcanas() {
-    return arcanaData;
-  }
-
-  /**
    * Calculate dominant energy from 3 arcanas
+   * @private
    */
-  calculateDominantEnergy(energies) {
+  _calculateDominantEnergy(energies) {
     const count = energies.reduce((acc, energy) => {
       acc[energy] = (acc[energy] || 0) + 1;
       return acc;
@@ -30,8 +25,9 @@ class PredictionService {
 
   /**
    * Check if fragment conditions match criteria
+   * @private
    */
-  matchesConditions(fragmentConditions, searchCriteria) {
+  _matchesConditions(fragmentConditions, searchCriteria) {
     if (!fragmentConditions) return true;
 
     if (fragmentConditions.dominant_energy) {
@@ -71,8 +67,9 @@ class PredictionService {
 
   /**
    * Select a random fragment matching criteria
+   * @private
    */
-  selectFragment(criteria) {
+  _selectFragment(criteria) {
     const usedIds = criteria.usedIds || [];
 
     let candidates = predictionsData.filter(
@@ -81,7 +78,7 @@ class PredictionService {
 
     if (criteria.conditions) {
       const matching = candidates.filter((fragment) =>
-        this.matchesConditions(fragment.conditions, criteria.conditions)
+        this._matchesConditions(fragment.conditions, criteria.conditions)
       );
 
       if (matching.length > 0) {
@@ -100,11 +97,12 @@ class PredictionService {
 
   /**
    * Generate a complete prediction from 3 arcanas
+   * @private
    */
-  generatePrediction(card1Id, card2Id, card3Id) {
-    const card1 = this.getArcanaById(card1Id);
-    const card2 = this.getArcanaById(card2Id);
-    const card3 = this.getArcanaById(card3Id);
+  _generatePredictionLogic(card1Id, card2Id, card3Id) {
+    const card1 = this._getArcanaById(card1Id);
+    const card2 = this._getArcanaById(card2Id);
+    const card3 = this._getArcanaById(card3Id);
 
     if (!card1 || !card2 || !card3) {
       throw new Error('Una o más cartas no fueron encontradas');
@@ -115,53 +113,53 @@ class PredictionService {
     }
 
     const energies = [card1.energy, card2.energy, card3.energy];
-    const dominantEnergy = this.calculateDominantEnergy(energies);
+    const dominantEnergy = this._calculateDominantEnergy(energies);
 
     const usedFragmentIds = [];
 
-    const intro = this.selectFragment({
+    const intro = this._selectFragment({
       type: 'introduccion',
       conditions: { dominant_energy: dominantEnergy },
       usedIds: usedFragmentIds,
     });
     if (intro) usedFragmentIds.push(intro.id);
 
-    const dev1 = this.selectFragment({
+    const dev1 = this._selectFragment({
       type: 'desarrollo_carta1',
       conditions: { themes: card1.themes, position: 1 },
       usedIds: usedFragmentIds,
     });
     if (dev1) usedFragmentIds.push(dev1.id);
 
-    const trans1 = this.selectFragment({
+    const trans1 = this._selectFragment({
       type: 'transicion',
       conditions: { energy_combination: [card1.energy, card2.energy] },
       usedIds: usedFragmentIds,
     });
     if (trans1) usedFragmentIds.push(trans1.id);
 
-    const dev2 = this.selectFragment({
+    const dev2 = this._selectFragment({
       type: 'desarrollo_carta2',
       conditions: { themes: card2.themes, position: 2 },
       usedIds: usedFragmentIds,
     });
     if (dev2) usedFragmentIds.push(dev2.id);
 
-    const trans2 = this.selectFragment({
+    const trans2 = this._selectFragment({
       type: 'transicion',
       conditions: null,
       usedIds: usedFragmentIds,
     });
     if (trans2) usedFragmentIds.push(trans2.id);
 
-    const dev3 = this.selectFragment({
+    const dev3 = this._selectFragment({
       type: 'desarrollo_carta3',
       conditions: { themes: card3.themes, position: 3 },
       usedIds: usedFragmentIds,
     });
     if (dev3) usedFragmentIds.push(dev3.id);
 
-    const ending = this.selectFragment({
+    const ending = this._selectFragment({
       type: 'cierre',
       conditions: null,
       usedIds: usedFragmentIds,
@@ -198,7 +196,67 @@ class PredictionService {
       dominant_energy: dominantEnergy,
     };
   }
+
+  // ========================================
+  // PUBLIC API - Compatible with previous tarotService
+  // ========================================
+
+  /**
+   * Obtener TODAS las cartas
+   * Equivalente a: GET /api/arcanas
+   */
+  getAllCards() {
+    try {
+      return arcanaData || [];
+    } catch (error) {
+      console.error('Error al obtener las cartas:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Obtener una carta por ID
+   * Equivalente a: GET /api/arcanas/:id
+   */
+  getCardById(id) {
+    try {
+      const card = this._getArcanaById(id);
+      
+      if (!card) {
+        throw new Error(`Carta con ID ${id} no encontrada`);
+      }
+
+      return card;
+    } catch (error) {
+      console.error(`Error al obtener la carta con ID ${id}:`, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Obtener una predicción basada en 3 cartas
+   * Equivalente a: GET /api/prediction?card1=X&card2=Y&card3=Z
+   * @param {number} card1Id - ID de la carta del pasado
+   * @param {number} card2Id - ID de la carta del presente
+   * @param {number} card3Id - ID de la carta del futuro
+   */
+  getPrediction(card1Id, card2Id, card3Id) {
+    try {
+      const prediction = this._generatePredictionLogic(card1Id, card2Id, card3Id);
+      return prediction;
+    } catch (error) {
+      console.error('Error al obtener la predicción:', error);
+      throw error;
+    }
+  }
 }
 
-// Exportar una instancia única
-export default new PredictionService();
+// Exportar una instancia única (singleton)
+const predictionService = new PredictionService();
+export default predictionService;
+
+// También exportar las funciones individualmente para mantener compatibilidad
+export const getAllCards = () => predictionService.getAllCards();
+export const getCardById = (id) => predictionService.getCardById(id);
+export const getPrediction = (card1Id, card2Id, card3Id) => 
+  predictionService.getPrediction(card1Id, card2Id, card3Id);
