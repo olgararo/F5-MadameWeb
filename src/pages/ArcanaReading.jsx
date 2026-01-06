@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import { getAllCards, getPrediction } from "../services/predictionService";
 import cardBack from "../assets/img/img_cardback.webp";
 import Lottie from "lottie-react";
@@ -12,7 +12,7 @@ export default function ArcanaReading() {
     present: null,
     future: null,
   });
-  const [loading, setLoading] = useState(true);
+
   const [error, setError] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const [openedCard, setOpenedCard] = useState(null);
@@ -31,16 +31,13 @@ export default function ArcanaReading() {
 
   // Cargar todas las cartas al montar
   useEffect(() => {
-    const fetchCards = async () => {
+    const fetchCards = () => {
       try {
-        setLoading(true);
-        const data = await getAllCards();
+        const data = getAllCards();
         setAllCards(data);
       } catch (err) {
         setError("Error al cargar las cartas");
         console.error("Error:", err);
-      } finally {
-        setLoading(false);
       }
     };
     fetchCards();
@@ -90,12 +87,12 @@ export default function ArcanaReading() {
   };
 
   // Revelar las cartas y obtener predicción
-  const handleReveal = async () => {
+  const handleReveal = () => {
     setRevealed(true);
     setLoadingPrediction(true);
 
     try {
-      const predictionData = await getPrediction(
+      const predictionData = getPrediction(
         selectedCards.past.id,
         selectedCards.present.id,
         selectedCards.future.id
@@ -127,25 +124,6 @@ export default function ArcanaReading() {
     !revealed;
   const availableCards = allCards.filter((card) => !isCardSelected(card.id));
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-nebula-black flex items-center justify-center">
-        <div className="text-center">
-          <div className="mb-8 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-            <Lottie
-              animationData={crystalBallAnimation}
-              loop={true}
-              className="w-full h-full"
-            />
-          </div>
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sunflare-orange mx-auto mb-4"></div>
-          <p className="text-moonlight-linen font-truculenta">
-            Preparando el oráculo...
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   if (error && !prediction) {
     return (
@@ -549,9 +527,7 @@ export default function ArcanaReading() {
 
             <Link to="/grid">
               <button className="group relative px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-cosmic-plum to-madame-mystic rounded-full font-truculenta text-lg md:text-xl font-bold text-moonlight-linen hover:from-madame-mystic hover:to-cosmic-plum transition-all duration-500 transform hover:scale-110 hover:shadow-2xl">
-                <span className="relative z-10">
-                  Explora la Galería
-                </span>
+                <span className="relative z-10">Explora la Galería</span>
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-sunflare-orange rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-supernova-coral rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity delay-200"></div>
               </button>
