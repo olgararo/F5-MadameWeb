@@ -2,15 +2,7 @@ name: Madame Web CI
 
 on:
   pull_request:
-    paths:
-      - "src/**"
-      - "public/**"
-      - "index.html"
-      - "package.json"
-      - "package-lock.json"
-      - "vite.config.js"
-      - "eslint.config.js"
-      - ".github/workflows/madameweb-ci.yml"
+    branches: [main]
 
 jobs:
   lint-and-test:
