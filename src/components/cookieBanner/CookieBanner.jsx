@@ -1,9 +1,14 @@
 import { useEffect } from "react";
 import "vanilla-cookieconsent/dist/cookieconsent.css";
 import * as CookieConsent from "vanilla-cookieconsent";
+import "./cookieconsent-custom.css";
 
 export default function CookieBanner() {
   useEffect(() => {
+    
+    //usar en consola
+    //window.CookieConsent = CookieConsent;
+    
     CookieConsent.run({
       guiOptions: {
         consentModal: {

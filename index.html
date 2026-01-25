@@ -11,6 +11,13 @@
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
+    // GA4 default configuration
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'wait_for_update': 500
+    });
+
     gtag('config', 'G-HK9E5JD8QV');
   </script>
 
